@@ -1,2 +1,3 @@
 This is a new file I am working on and I want it to be put on the github repository.
 I am adding to this file from the github online editor.
+I am adding a new line from my local copy.
