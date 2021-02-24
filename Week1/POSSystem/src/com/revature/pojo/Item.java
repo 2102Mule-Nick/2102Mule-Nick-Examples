@@ -18,10 +18,18 @@ package com.revature.pojo;
  * private			+				-						-							-							-
  * 
  */
-
+//constructor chain
+// class NewItem extends Item {}
+// new NewItem() -> Item() -> Item(paramaters) -> Object()
+// class NewNewItem extends NewItem{}
+// new NewNewItem() -> NewItem() -> Item() -> Item(parameters) -> Object()
 public class Item {
 
-	private int productId;
+	// final says a value cannot be changed
+	//classes - cannot be derived (extended)
+	//methods - cannot be overriden
+	//variables - cannot changed, for primatives cannot change initial value, for objects you cannot rereferrence them
+	private final int productId;
 
 	private float cost;
 
@@ -30,15 +38,6 @@ public class Item {
 	private int quantity;
 
 	private float discount;
-
-	public void setProductId(int productId) {
-
-		if (productId > 0) {
-
-			this.productId = productId;
-		}
-
-	}
 
 	public int getProductId() {
 
@@ -85,15 +84,27 @@ public class Item {
 	public float getCost() {
 		return cost;
 	}
-	
+	/*
+	 * Object Class -> parent of all classes in Java
+	 * If you do not extend another class, you inherit from the Object class
+	 */
+	//new Item(); -> Item(default values) -> parent class constructor
 	public Item() {
+		//the first line, of any constructor is super() or this()
+		//this() refers to another constructor in this class
+		//if neither are called explicitly, super() is called implicitly
+		this(1, 3.0f, "default-item-name", 1, 0.0f);
 		//Constructor - create object instance of the class, sets the initial state
 		// Java does provide a default constructor, only if you did not write your own
 	}
 
+	/*
+	 * Overloaded constructor, can also overload methods
+	 * Two methods in the same class, with the same name, but different parameter list
+	 */
 	public Item(int productId, float cost, String itemName, int quantity, float discount) {
-		super();
-		this.setProductId(productId);
+		super(); //referencing the parent classes constructor
+		this.productId = productId;
 		this.setCost(cost);
 		this.setItemName(itemName);
 		this.setQuantity(quantity);

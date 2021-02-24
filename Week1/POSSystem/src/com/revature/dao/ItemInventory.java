@@ -1,29 +1,41 @@
 package com.revature.dao;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.revature.pojo.Item;
 
 public class ItemInventory {
 	
-	private List<Item> itemList;
+	private final static List<Item> itemList = new LinkedList<>();
 
-	public List<Item> getItemList() {
+	public static List<Item> getItemList() {
 		return itemList;
 	}
 
-	public void addItem(Item item) {
+	public static void addItem(Item item) {
 		itemList.add(item);
 	}
 	
-	public ItemInventory() {
-		this.itemList = new ArrayList<>();
-	}
-	
-	public String toString() {
+	/*
+	 * overriding - form of runtime polymorphism
+	 * allows us to write our own version of a parent method
+	 * must be same name/parameter list as parent version
+	 * 
+	 * Object o;
+	 * 
+	 * ...some code...
+	 * 
+	 * o = myReturnMethod();
+	 * 
+	 * o.toString();
+	 * 
+	 */
+	public static String print() {
 		
-		String ret = "";
+		String ret ="";
+		
+		//String ret = "";
 		
 		for (Item item : itemList) {
 			ret += item.getItemName();
