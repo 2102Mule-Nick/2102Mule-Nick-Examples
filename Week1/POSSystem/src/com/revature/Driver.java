@@ -42,6 +42,9 @@ public class Driver {
 		//constantItem = new Item(); cannot rereferrence
 		
 		//set up a list of items
+		/*
+		 * ItemInventory ii = new ItemInventory(); ii.addItem(new Item());
+		 */
 		ItemInventory.addItem(new Item(1, 10.0f, "gluteen free pancakes", 12000000, 0.0f));
 		ItemInventory.addItem(new Item(2, 0.25f, "eggs", 30, 0.0f));
 		ItemInventory.addItem(new Item(3, 40.0f, "cookies", 100, 20.0f));
