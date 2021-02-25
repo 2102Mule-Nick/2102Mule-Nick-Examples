@@ -1,5 +1,6 @@
 package com.revature.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
@@ -64,7 +65,8 @@ public class Cart {
 	}
 
 	public Cart() {
-		
+		this.items = new ArrayList<>();
+		this.quantity = new ArrayList<>();
 	}
 	
 	public Cart(int cartId, List<Item> items, float total, List<Integer> quantity) {

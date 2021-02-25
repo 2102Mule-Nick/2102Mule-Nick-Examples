@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,6 +35,21 @@ public class ItemInventory {
 	public static List<Item> getItemList() {
 		//System.out.println(inventoryName); out of scope, trying to access an instance variable from a static context
 		return ITEM_LIST;
+	}
+	
+	public static Item getItemByProductId(int productId) {
+		
+		Iterator<Item> iter = ITEM_LIST.iterator();
+		
+		while (iter.hasNext()) {
+			Item item = iter.next();
+			if(item.getProductId() == productId) {
+				return item;
+			}
+		}
+		
+		return null;
+		
 	}
 
 	//static method is inside the static scope
