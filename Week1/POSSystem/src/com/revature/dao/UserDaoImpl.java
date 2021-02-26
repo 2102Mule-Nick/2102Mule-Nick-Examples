@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class UserDaoImpl implements UserDao{
 			
 			while (iter.hasNext()) {
 				if (iter.next().getUsername().equals(user.getUsername())) {
-					throw new UserNameTaken();
+					throw new UserNameTaken("This username is taken");
 				}
 			}
 			
@@ -39,7 +40,7 @@ public class UserDaoImpl implements UserDao{
 		while (iter.hasNext()) {
 			
 			User existingUser = iter.next();
-			if (existingUser.getUsername().equals(username)) {
+			if (existingUser.getUsername().equalsIgnoreCase(username)) {
 				return existingUser;
 			}
 		}
@@ -65,4 +66,12 @@ public class UserDaoImpl implements UserDao{
 		
 	}
 
+	public UserDaoImpl() {
+		super();
+		userList = new ArrayList<>();
+		userList.add(new User("keyur", "iamhappy"));
+		userList.add(new User("justbrian", "hunter12"));
+		userList.add(new User("gael", "g22"));
+	}
+	
 }

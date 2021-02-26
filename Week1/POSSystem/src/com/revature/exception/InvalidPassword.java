@@ -1,6 +1,6 @@
 package com.revature.exception;
 
-public class InvalidPassword extends Exception {
+public class InvalidPassword extends RuntimeException {
 
 	public InvalidPassword() {
 		super();

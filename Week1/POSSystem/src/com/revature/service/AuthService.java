@@ -1,6 +1,7 @@
 package com.revature.service;
 
 import com.revature.exception.InvalidPassword;
+import com.revature.exception.UserNameTaken;
 import com.revature.exception.UserNotFound;
 import com.revature.pojo.User;
 
@@ -10,6 +11,6 @@ public interface AuthService {
 	
 	public User authenticateUser(User user) throws InvalidPassword, UserNotFound;
 	
-	public User registerUser(User user);
+	public User registerUser(User user) throws UserNameTaken;
 
 }
