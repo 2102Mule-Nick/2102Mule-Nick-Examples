@@ -1,5 +1,6 @@
 package com.revature.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
@@ -20,6 +21,8 @@ public class Cart {
 	public int getCartId() {
 		return cartId;
 	}
+	
+	
 
 
 
@@ -64,7 +67,7 @@ public class Cart {
 	}
 
 	public Cart() {
-		
+		this(0, new ArrayList<Item>(), 0.0f, new ArrayList<Integer>());
 	}
 	
 	public Cart(int cartId, List<Item> items, float total, List<Integer> quantity) {
@@ -85,6 +88,50 @@ public class Cart {
 		myInt = (int) myInteger;
 		
 		myInteger = (Integer) myInt;
+		
+	}
+	
+	public void addItem(Item item, int quantity) 
+	{
+		//updating item list, total, quantity
+		items.add(item);
+		total += item.getCost();
+		this.quantity.add(quantity);
+	}
+	
+	public boolean removeItem(int productId, int quantity) {
+		//check if enough items to remove
+		boolean found = false;
+		int itemIndex = 0;
+		for(int i = 0; i < items.size(); i++) {
+			if(items.get(i).getProductId() == productId) {
+				if(this.quantity.get(i) >= quantity) {
+					found = true;
+					itemIndex = i;
+					break;
+				}
+				else {
+					found = false;
+					break;
+				}
+			}
+		}
+		if(found) {
+			//update total
+			total -= items.get(itemIndex).getCost() * quantity;
+			//update quanity
+			this.quantity.set(itemIndex, this.quantity.get(itemIndex) - quantity);
+			if(this.quantity.get(itemIndex) <= 0) {
+				this.quantity.remove(itemIndex);
+				//update itemlist
+				items.remove(itemIndex);
+			}
+			
+			return true;
+		}
+		else {
+			return false;
+		}
 		
 	}
 	
