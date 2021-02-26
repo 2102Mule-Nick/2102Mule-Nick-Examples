@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public List<User> getAllUsers() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.userList;
 	}
 
 	@Override
@@ -60,9 +60,19 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void removeUser(User user) {
+	public void removeUser(User user) throws UserNotFound {
 		// TODO Auto-generated method stub
+		Iterator<User> iter = userList.iterator();
 		
+		while (iter.hasNext()) {
+			User existingUser = iter.next();
+			if (existingUser.getUsername().equals(user.getUsername())) {
+				userList.remove(existingUser);
+				
+			}
+		}
+		
+		throw new  UserNotFound();
 	}
 
 }

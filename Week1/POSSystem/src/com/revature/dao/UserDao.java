@@ -16,6 +16,6 @@ public interface UserDao {
 	
 	public void updateUser(User user);
 	
-	public void removeUser(User user);
+	public void removeUser(User user) throws UserNotFound;
 	
 }
