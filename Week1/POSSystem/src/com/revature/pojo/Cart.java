@@ -24,6 +24,9 @@ public class Cart {
 
 
 	public void setCartId(int cartId) {
+		if(cartId < 1 ) {
+			throw new IllegalArgumentException();
+		}
 		this.cartId = cartId;
 	}
 
@@ -36,6 +39,9 @@ public class Cart {
 
 
 	public void setItems(List<Item> items) {
+		if(items == null) {
+			throw new NullPointerException();
+		}
 		this.items = items;
 	}
 
