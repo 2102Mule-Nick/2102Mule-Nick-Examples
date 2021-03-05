@@ -65,4 +65,14 @@ public class AuthServiceImpl implements AuthService {
 		this.userDao = userDao;
 	}
 
+	@Override
+	public boolean removeUser(User user) {
+
+		if (existingUser(user)) {
+			userDao.removeUser(user);
+			return true;
+		}
+		return false;
+	}
+
 }

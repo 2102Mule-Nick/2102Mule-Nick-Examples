@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.revature.dao.UserDao;
 import com.revature.dao.UserDaoPostgres;
+import com.revature.pojo.User;
 import com.revature.service.AuthService;
 import com.revature.service.AuthServiceImpl;
 import com.revature.ui.LoginMenu;
@@ -20,6 +21,14 @@ public class RefactoredDriver {
 		Scanner scan = new Scanner(System.in);
 		
 		UserDao userDao = new UserDaoPostgres();
+		
+		/*  This second team test
+		 * 
+		User testUser = new User("lee", "1234");
+		userDao.removeUser(testUser);
+		
+		scan.nextLine();
+		*/
 		
 		AuthService authService = new AuthServiceImpl(userDao);
 		
@@ -48,7 +57,7 @@ public class RefactoredDriver {
 			
 		} while (nextMenu != null);
 		
-
+		
 		
 	}
 
