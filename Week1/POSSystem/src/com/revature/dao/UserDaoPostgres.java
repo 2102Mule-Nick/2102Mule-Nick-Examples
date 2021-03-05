@@ -2,6 +2,7 @@ package com.revature.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -92,9 +93,31 @@ public class UserDaoPostgres implements UserDao {
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public void updateUser(User user, String new_password) {
 		// TODO Auto-generated method stub
 
+		Connection conn = null;
+		
+		PreparedStatement stmt = null;
+		
+		String sql = "update user_acc set pass_word = ? WHERE username = ?";
+		
+		conn = ConnectionFactoryPostgres.getConnection();
+		
+		try {
+			stmt=conn.prepareStatement(sql);
+			stmt.setString(1, new_password);
+			stmt.setString(2, user.getUsername());
+			stmt.execute();
+			log.info("User updated");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			log.info("Unsuccessful update");
+		}
+		
+		
+		
 	}
 
 	@Override

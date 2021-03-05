@@ -65,4 +65,12 @@ public class AuthServiceImpl implements AuthService {
 		this.userDao = userDao;
 	}
 
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		log.info("Update User in Auth Service called");
+		userDao.updateUser(user);
+		return null;
+	}
+
 }
