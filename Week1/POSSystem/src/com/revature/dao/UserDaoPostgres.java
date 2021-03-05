@@ -122,7 +122,23 @@ public class UserDaoPostgres implements UserDao {
 
 	@Override
 	public void removeUser(User user) {
-		// TODO Auto-generated method stub
+
+		log.trace("UserDaoPostgres.createUser method called");
+		
+		Connection conn = ConnectionFactoryPostgres.getConnection();
+		
+		String sql = "delete from user_acc " + 
+					  "where username = '" + user.getUsername() + "' and pass_word = '" +user.getPassword() + "'";
+		
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

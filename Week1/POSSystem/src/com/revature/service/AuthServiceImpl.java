@@ -66,11 +66,20 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	@Override
-	public User updateUser(User user) {
+	public User updateUser(User user, String password) {
 		// TODO Auto-generated method stub
 		log.info("Update User in Auth Service called");
-		userDao.updateUser(user);
+		userDao.updateUser(user, password);
 		return null;
+	}
+	
+	public boolean removeUser(User user) {
+
+		if (existingUser(user)) {
+			userDao.removeUser(user);
+			return true;
+		}
+		return false;
 	}
 
 }

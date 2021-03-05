@@ -2,6 +2,7 @@ package com.revature.ui;
 
 import java.util.Scanner;
 
+import com.revature.pojo.User;
 import com.revature.service.AuthService;
 
 public class UpdateMenu implements Menu {
@@ -25,8 +26,9 @@ public class UpdateMenu implements Menu {
 		System.out.println("Enter your new password:");
 		String new_password = scan.nextLine();
 		
+		User user = new User(answer, new_password);
 		
-		authService.existingUser(user, new_password);
+		authService.updateUser(user, new_password);
 	}
 
 	@Override
