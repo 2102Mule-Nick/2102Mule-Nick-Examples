@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.revature.dao.UserDao;
@@ -15,7 +17,7 @@ public class RefactoredDriver {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		
 		Scanner scan = new Scanner(System.in);
 		
@@ -41,10 +43,14 @@ public class RefactoredDriver {
 		
 		Menu nextMenu = welcomeMenu;
 		
+		welcomeMenu.setScanner(new Scanner(new FileInputStream("filedoesn'texist")));
+		
 		do {
 			nextMenu.displayOptions();
 			
 			nextMenu = nextMenu.advance();
+			
+			nextMenu = null;
 			
 		} while (nextMenu != null);
 		
