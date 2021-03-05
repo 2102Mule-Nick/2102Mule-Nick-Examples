@@ -15,7 +15,7 @@ import com.revature.exception.UserNameTaken;
 import com.revature.exception.UserNotFound;
 import com.revature.pojo.User;
 
-public class UserDaoKryo implements UserDao {
+public final class UserDaoKryo implements UserDao {
 	
 	private Kryo kryo = new Kryo();
 

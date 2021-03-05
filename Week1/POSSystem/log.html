@@ -29,3 +29,808 @@ Log session start time Fri Feb 26 18:13:18 EST 2021<br>
 <td title="root category">root</td>
 <td title="Message">Starting to create user</td>
 </tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 11:16:05 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failure to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: Something unusual has occurred to cause the driver to fail. Please report this exception.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:285)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.dao.UserDaoPostgres.getUserByUsername(UserDaoPostgres.java:33)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.AuthServiceImpl.authenticateUser(AuthServiceImpl.java:36)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.ui.LoginMenu.displayOptions(LoginMenu.java:70)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.RefactoredDriver.main(RefactoredDriver.java:45)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.lang.IllegalArgumentException: Null value for 'password'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotNull(Preconditions.java:41)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotEmpty(Preconditions.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.client.ScramSession$ServerFirstProcessor.clientFinalProcessor(ScramSession.java:128)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jre7.sasl.ScramAuthenticator.processServerFirstMessage(ScramAuthenticator.java:147)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 6 more
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 11:18:52 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failure to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: Something unusual has occurred to cause the driver to fail. Please report this exception.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:285)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.dao.UserDaoPostgres.getUserByUsername(UserDaoPostgres.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.AuthServiceImpl.authenticateUser(AuthServiceImpl.java:36)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.ui.LoginMenu.displayOptions(LoginMenu.java:70)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.RefactoredDriver.main(RefactoredDriver.java:45)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.lang.IllegalArgumentException: Null value for 'password'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotNull(Preconditions.java:41)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotEmpty(Preconditions.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.client.ScramSession$ServerFirstProcessor.clientFinalProcessor(ScramSession.java:128)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jre7.sasl.ScramAuthenticator.processServerFirstMessage(ScramAuthenticator.java:147)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 6 more
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 11:19:49 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failure to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: Something unusual has occurred to cause the driver to fail. Please report this exception.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:285)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.dao.UserDaoPostgres.getUserByUsername(UserDaoPostgres.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.AuthServiceImpl.authenticateUser(AuthServiceImpl.java:36)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.ui.LoginMenu.displayOptions(LoginMenu.java:70)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.RefactoredDriver.main(RefactoredDriver.java:45)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.lang.IllegalArgumentException: Null value for 'password'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotNull(Preconditions.java:41)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotEmpty(Preconditions.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.client.ScramSession$ServerFirstProcessor.clientFinalProcessor(ScramSession.java:128)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jre7.sasl.ScramAuthenticator.processServerFirstMessage(ScramAuthenticator.java:147)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 6 more
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 11:24:21 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">usr : postgres</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">password : null</td>
+</tr>
+
+<tr>
+<td>338</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failure to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: Something unusual has occurred to cause the driver to fail. Please report this exception.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:285)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.dao.UserDaoPostgres.getUserByUsername(UserDaoPostgres.java:46)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.AuthServiceImpl.authenticateUser(AuthServiceImpl.java:36)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.ui.LoginMenu.displayOptions(LoginMenu.java:70)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.RefactoredDriver.main(RefactoredDriver.java:45)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.lang.IllegalArgumentException: Null value for 'password'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotNull(Preconditions.java:41)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.common.util.Preconditions.checkNotEmpty(Preconditions.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.shaded.com.ongres.scram.client.ScramSession$ServerFirstProcessor.clientFinalProcessor(ScramSession.java:128)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jre7.sasl.ScramAuthenticator.processServerFirstMessage(ScramAuthenticator.java:147)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 6 more
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 11:25:22 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">usr : postgres</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">password : Revature</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failure to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: FATAL: password authentication failed for user &quot;postgres&quot;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.dao.UserDaoPostgres.getUserByUsername(UserDaoPostgres.java:46)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.AuthServiceImpl.authenticateUser(AuthServiceImpl.java:36)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.ui.LoginMenu.displayOptions(LoginMenu.java:70)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.RefactoredDriver.main(RefactoredDriver.java:45)
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 11:26:44 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">usr : postgres</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">password : R3v@tur3</td>
+</tr>
+
+<tr>
+<td>532</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failure to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: ERROR: column &quot;goku&quot; does not exist
+<br>&nbsp;&nbsp;&nbsp;&nbsp;  Position: 41
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:236)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.dao.UserDaoPostgres.getUserByUsername(UserDaoPostgres.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.AuthServiceImpl.authenticateUser(AuthServiceImpl.java:36)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.ui.LoginMenu.displayOptions(LoginMenu.java:70)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.RefactoredDriver.main(RefactoredDriver.java:45)
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 12:06:58 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failed to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: The connection attempt failed.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:315)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.util.ConnectionFactoryPostgres.getConnection(ConnectionFactoryPostgres.java:38)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.test.ConnectionFactoryTest.test(ConnectionFactoryTest.java:22)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:498)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:205)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:201)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.util.ArrayList.forEach(ArrayList.java:1259)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.util.ArrayList.forEach(ArrayList.java:1259)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.net.UnknownHostException: null
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.Socket.connect(Socket.java:607)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.PGStream.createSocket(PGStream.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:95)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 73 more
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 12:08:03 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">URL : jdbc:postgresql://null:5432/postgres?</td>
+</tr>
+
+<tr>
+<td>2373</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failed to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: The connection attempt failed.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:315)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.util.ConnectionFactoryPostgres.getConnection(ConnectionFactoryPostgres.java:40)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.test.ConnectionFactoryTest.test(ConnectionFactoryTest.java:22)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:498)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:205)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:201)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.util.ArrayList.forEach(ArrayList.java:1259)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.util.ArrayList.forEach(ArrayList.java:1259)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.net.UnknownHostException: null
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.Socket.connect(Socket.java:607)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.PGStream.createSocket(PGStream.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:95)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 73 more
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 12:09:37 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">URL : jdbc:postgresql://localhost:5432/postgres?</td>
+</tr>
+
+<tr>
+<td>654</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failed to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: FATAL: password authentication failed for user &quot;NickolasJurczak&quot;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.util.ConnectionFactoryPostgres.getConnection(ConnectionFactoryPostgres.java:40)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.test.ConnectionFactoryTest.test(ConnectionFactoryTest.java:22)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:498)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:205)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:201)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.util.ArrayList.forEach(ArrayList.java:1259)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.util.ArrayList.forEach(ArrayList.java:1259)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 12:11:07 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">URL : jdbc:postgresql://localhost:5432/postgres?</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 12:26:06 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">URL : jdbc:postgresql://localhost:5432/postgres?</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri Mar 05 12:30:29 EST 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="root category">root</td>
+<td title="Message">URL : jdbc:postgresql://localhost:5432/postgres?</td>
+</tr>
