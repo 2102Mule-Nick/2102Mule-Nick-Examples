@@ -13,6 +13,8 @@ public interface AuthService {
 	
 	public User registerUser(User user) throws UserNameTaken;
 	
+	public User updateUser(User user, String password);
+
 	public boolean removeUser(User user);
 
 }
