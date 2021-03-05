@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import org.apache.log4j.Logger;
+
 import com.revature.dao.UserDao;
 import com.revature.exception.InvalidPassword;
 import com.revature.exception.UserNameTaken;
@@ -7,6 +9,8 @@ import com.revature.exception.UserNotFound;
 import com.revature.pojo.User;
 
 public class AuthServiceImpl implements AuthService {
+	
+	Logger log = Logger.getRootLogger();
 
 	private UserDao userDao;
 
@@ -20,8 +24,10 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public boolean existingUser(User user) {
+		log.trace("AuthServiceImpl.existingUser method called");
 		try {
 			if (userDao.getUserByUsername(user.getUsername()) != null) {
+				log.info("getUserByUsername did not return null");
 				return true;
 			}
 		} catch (UserNotFound e) {
@@ -44,6 +50,7 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public User registerUser(User user) throws UserNameTaken {
+		log.trace("AuthServiceImpl.registerUser method called");
 		userDao.createUser(user);
 		return user;
 	}

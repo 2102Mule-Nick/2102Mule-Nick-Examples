@@ -2,11 +2,15 @@ package com.revature.ui;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.revature.exception.UserNameTaken;
 import com.revature.pojo.User;
 import com.revature.service.AuthService;
 
 public class RegistractionMenu implements Menu {
+	
+	Logger log = Logger.getRootLogger();
 	
 	private Menu welcomeMenu;
 
@@ -29,6 +33,7 @@ public class RegistractionMenu implements Menu {
 		System.out.println("Please enter a new password:");
 		user.setPassword(scan.nextLine());
 		if (!authService.existingUser(user)) {
+			log.info("Username: " + user.getUsername() + " is available.");
 			try {
 				authService.registerUser(user);
 				nextMenu = null;
@@ -37,6 +42,7 @@ public class RegistractionMenu implements Menu {
 				nextMenu = welcomeMenu;
 			}
 		} else {
+			log.warn("Username: " + user.getUsername() + " is already taken.");
 			System.out.println("Username taken, please try again");
 			nextMenu = welcomeMenu;
 		}

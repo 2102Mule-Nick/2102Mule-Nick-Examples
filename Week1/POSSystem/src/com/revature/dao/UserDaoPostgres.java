@@ -21,6 +21,8 @@ public class UserDaoPostgres implements UserDao {
 	@Override
 	public void createUser(User user) throws UserNameTaken {
 		
+		log.trace("UserDaoPostgres.createUser method called");
+		
 		Connection conn = ConnectionFactoryPostgres.getConnection();
 		
 		String sql = "insert into user_acc (username, pass_word) values ('" + user.getUsername() + "', '" +user.getPassword() + "')";
@@ -48,7 +50,7 @@ public class UserDaoPostgres implements UserDao {
 			System.out.println("Failed to load Driver");
 		}
 
-		User user = new User();
+		User user = null;
 		
 		String url = "jdbc:postgresql://" + System.getenv("POS_DB_URL") + ":5432/" + "postgres" + "?";
 		
@@ -70,6 +72,8 @@ public class UserDaoPostgres implements UserDao {
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while (rs.next()) {
+				log.info("User found in DB");
+				user = new User();
 				user.setUsername(rs.getString("username"));
 				user.setPassword(rs.getString("pass_word"));
 			}

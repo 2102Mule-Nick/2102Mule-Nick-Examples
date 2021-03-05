@@ -12,6 +12,8 @@ public class ExampleDriver {
 	
 	public static void main(String[] args) {
 		
+		GenericInterface<Double> gi = new GenericImpl<>();
+		
 		counter++;
 		counter++;
 		counter++;

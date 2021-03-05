@@ -6,8 +6,6 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
-import com.revature.pojo.User;
-
 public final class ConnectionFactoryPostgres {
 
 	Logger log = Logger.getRootLogger();
