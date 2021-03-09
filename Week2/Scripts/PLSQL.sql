@@ -74,4 +74,24 @@ $$ language plpgsql;
 select getTotal(20);
 
 update cart set total = getTotal(20) where cart_id = 20;
+
+select * from employee;
+
+insert into employee (employeeid, firstname, lastname) values ((select nextval('employee_id_seq')), 'Brian', 'C');
+
+--sequence
+create sequence employee_id_seq start 9;
+
+--trigger
+create or replace function insert_into_employee()
+	returns trigger as $$
+	begin
+		if(TG_OP = 'INSERT') then
+			new.employeeid = (select nextval('employee_id_seq'));
+		end if;
+	return new;
+	end;
+$$ language plpgsql;
+
+
 	
