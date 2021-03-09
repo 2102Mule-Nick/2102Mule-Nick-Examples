@@ -22,13 +22,13 @@ public final class ConnectionFactoryPostgres {
 
 	private ConnectionFactoryPostgres() {
 		
-		DB_NAME = "test_pos";
+		DB_NAME = System.getenv("POS_DB_NAME");
 		
-		URL = "jdbc:postgresql://" + "localhost" + ":5432/" + DB_NAME + "?";
+		URL = "jdbc:postgresql://" + System.getenv("POS_DB_URL") + ":5432/" + DB_NAME + "?";
 
-		USERNAME = "postgres";
+		USERNAME = System.getenv("POS_DB_USERNAME");
 
-		PASSWORD = "R3v@tur3";
+		PASSWORD = System.getenv("POS_DB_PASSWORD");
 	}
 	
 	

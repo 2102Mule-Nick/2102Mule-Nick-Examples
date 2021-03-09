@@ -2,7 +2,9 @@ package com.revature.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import com.revature.pojo.Cart;
 import com.revature.pojo.Item;
@@ -47,12 +49,18 @@ public class CartDaoPostgres implements CartDao {
 
 	@Override
 	public Cart createCart(Cart cart) throws SQLException {
-		/*
-		 * String sql = "insert into cart (user_id, total) values(?, ?)"; int[] ids =
-		 * new int[1]; PreparedStatement pstmt = conn.prepareStatement(sql, ids);
-		 * pstmt.setInt(1, cart.getUserId()); pstmt.setFloat(2, cart.getTotal());
-		 * pstmt.executeUpdate(); cart.setCartId(ids[0]);
-		 */
+		
+		  String sql = "insert into cart (user_id, total) values(?, ?)"; 
+		  PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+		  pstmt.setInt(1, cart.getUserId()); 
+		  pstmt.setFloat(2, cart.getTotal());
+		  pstmt.executeUpdate(); 
+		  
+		  //grab generated cart_id
+		  ResultSet rs = pstmt.getGeneratedKeys();
+		  rs.next();
+		  cart.setCartId((int)rs.getLong(1));
+		 
 		return cart;
 	}
 
