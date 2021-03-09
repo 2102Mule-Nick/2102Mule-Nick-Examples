@@ -17,7 +17,9 @@ class ConnectionFactoryTest {
 	@Test
 	void test() {
 		
-		assertNotNull(ConnectionFactoryPostgres.getConnection(), "Connection to DB should be created.");
+		assertNotNull(
+				ConnectionFactoryPostgres.getConnection(), 
+				"Connection to DB should be created.");
 		
 	}
 

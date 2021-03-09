@@ -54,7 +54,6 @@ public class UserDaoImpl implements UserDao{
 		return null;
 	}
 
-	@Override
 	public void updateUser(User user) {
 		// TODO Auto-generated method stub
 		
@@ -72,6 +71,12 @@ public class UserDaoImpl implements UserDao{
 		userList.add(new User("keyur", "iamhappy"));
 		userList.add(new User("justbrian", "hunter12"));
 		userList.add(new User("gael", "g22"));
+	}
+
+	@Override
+	public void updateUser(User user, String new_password) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

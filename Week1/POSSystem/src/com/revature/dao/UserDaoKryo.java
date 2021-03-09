@@ -84,7 +84,6 @@ public final class UserDaoKryo implements UserDao {
 		return null;
 	}
 
-	@Override
 	public void updateUser(User user) {
 		// TODO Auto-generated method stub
 
@@ -99,6 +98,12 @@ public final class UserDaoKryo implements UserDao {
 	public UserDaoKryo() {
 		super();
 		kryo.register(User.class);
+	}
+
+	@Override
+	public void updateUser(User user, String new_password) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

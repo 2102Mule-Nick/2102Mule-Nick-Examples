@@ -13,10 +13,24 @@ public class Cart {
 	
 	private List<Integer> quantity; //Integer is a Wrapper class
 	
+	private int userId;
+	
 	/*
 	 * Wrapper class allows us to convert our primative values into an object
 	 * int -> Integer byte ->Byte float -> Float... etc. for all primatives
 	 */
+
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
 
 	public int getCartId() {
 		return cartId;
@@ -69,12 +83,16 @@ public class Cart {
 		this.quantity = new ArrayList<>();
 	}
 	
-	public Cart(int cartId, List<Item> items, float total, List<Integer> quantity) {
+	public Cart(int cartId, List<Item> items, float total, List<Integer> quantity, int userId) {
+		super();
 		this.cartId = cartId;
 		this.items = items;
 		this.total = total;
 		this.quantity = quantity;
+		this.userId = userId;
 	}
+
+
 
 	{
 		

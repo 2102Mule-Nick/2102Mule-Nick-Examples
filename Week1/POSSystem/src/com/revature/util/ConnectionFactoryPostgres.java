@@ -16,14 +16,19 @@ public final class ConnectionFactoryPostgres {
 
 	public static String PASSWORD;
 	
+	public static String DB_NAME;
+	
 	private static ConnectionFactoryPostgres connectionFactory = null;
 
 	private ConnectionFactoryPostgres() {
-		URL = "jdbc:postgresql://" + System.getenv("POS_DB_URL") + ":5432/" + "postgres" + "?";
+		
+		DB_NAME = "test_pos";
+		
+		URL = "jdbc:postgresql://" + "localhost" + ":5432/" + DB_NAME + "?";
 
-		USERNAME = System.getenv("POS_DB_USERNAME");
+		USERNAME = "postgres";
 
-		PASSWORD = System.getenv("POS_DB_PASSWORD");
+		PASSWORD = "R3v@tur3";
 	}
 	
 	
@@ -31,14 +36,17 @@ public final class ConnectionFactoryPostgres {
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 			System.out.println("Failed to load Driver");
 		}
 
 		log.info("URL : " + URL);
 
 		try {
+			System.out.println();
 			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		} catch (SQLException e) {
+			e.printStackTrace();
 			log.error("Failed to connect to DB", e);
 		}
 		return null;
