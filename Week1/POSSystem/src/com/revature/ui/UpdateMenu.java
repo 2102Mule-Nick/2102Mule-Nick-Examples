@@ -49,4 +49,14 @@ public class UpdateMenu implements Menu {
 		this.scan = scan;
 	}
 
+	public UpdateMenu() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public UpdateMenu(AuthService authService) {
+		super();
+		this.authService = authService;
+	}
+	
 }

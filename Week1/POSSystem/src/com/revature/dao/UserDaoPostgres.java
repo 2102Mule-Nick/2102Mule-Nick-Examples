@@ -100,16 +100,22 @@ public class UserDaoPostgres implements UserDao {
 		
 		PreparedStatement stmt = null;
 		
+		//Statement stmt = null;
+		
 		String sql = "update user_acc set pass_word = ? WHERE username = ?";
+		//String sql = "update user_acc set pass_word = '" + new_password + "' WHERE username = '" + user.getUsername() + "'";
 		
 		conn = ConnectionFactoryPostgres.getConnection();
 		
 		try {
+			//stmt = conn.createStatement();
 			stmt=conn.prepareStatement(sql);
 			stmt.setString(1, new_password);
 			stmt.setString(2, user.getUsername());
-			stmt.execute();
+			//stmt.executeUpdate(sql);
+			stmt.executeUpdate();
 			log.info("User updated");
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,13 +133,19 @@ public class UserDaoPostgres implements UserDao {
 		
 		Connection conn = ConnectionFactoryPostgres.getConnection();
 		
-		String sql = "delete from user_acc " + 
-					  "where username = '" + user.getUsername() + "' and pass_word = '" +user.getPassword() + "'";
+		//String sql = "delete from user_acc " + 
+		//			  "where username = '" + user.getUsername() + "' and pass_word = '" +user.getPassword() + "'";
 		
-		Statement stmt;
+		String sql = "delete from user_acc where username = ? and pass_word = ?";
+		
+		PreparedStatement stmt;
 		try {
-			stmt = conn.createStatement();
-			stmt.executeUpdate(sql);
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user.getUsername());
+			stmt.setString(2, user.getPassword());
+			//stmt = conn.createStatement();
+			//stmt.executeUpdate(sql);
+			stmt.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

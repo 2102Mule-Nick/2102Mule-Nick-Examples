@@ -10,6 +10,7 @@ import com.revature.service.AuthServiceImpl;
 import com.revature.ui.LoginMenu;
 import com.revature.ui.Menu;
 import com.revature.ui.RegistractionMenu;
+import com.revature.ui.UpdateMenu;
 import com.revature.ui.WelcomeMenu;
 
 public class RefactoredDriver {
@@ -23,8 +24,8 @@ public class RefactoredDriver {
 		UserDao userDao = new UserDaoPostgres();
 		
 		/*  This second team test
-		 * 
-		User testUser = new User("lee", "1234");
+		 *
+		User testUser = new User("iyad", "hahahahahaha");
 		userDao.removeUser(testUser);
 		
 		scan.nextLine();
@@ -36,7 +37,9 @@ public class RefactoredDriver {
 		
 		Menu login = new LoginMenu(authService);
 		
-		Menu welcomeMenu = new WelcomeMenu(login, register);
+		Menu updateMenu = new UpdateMenu(authService);
+		
+		Menu welcomeMenu = new WelcomeMenu(login, register, updateMenu);
 		
 		((RegistractionMenu)register).setWelcomeMenu(welcomeMenu);
 		
@@ -47,6 +50,8 @@ public class RefactoredDriver {
 		register.setScanner(scan);
 		
 		welcomeMenu.setScanner(scan);
+		
+		updateMenu.setScanner(scan);
 		
 		Menu nextMenu = welcomeMenu;
 		
