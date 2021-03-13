@@ -1,0 +1,103 @@
+Spring - Java Framework for rapid enterprise application development
+	- lightweight AOP framework, with a Dependency Injection container
+	- Module Based Framework
+		- core *required
+		- Spring MVC
+		- JDBC
+		- Messaging (JMS)
+		- Transactions (JTA)
+		- AOP
+		- Web
+		- etc.
+		
+IOC - Inversion of Control
+	- Concept
+	- Developer gives up control to Container
+	- Good or Bad Thing? 
+		- limits our design of application
+		- with abstraction, may be more difficult to debug if something goes wrong
+		- easy and faster to build applications
+		- helps loosely couple code
+		- takes power from developers, usually for a good reason
+		
+DI - Dependency Injection
+	- One implementation of IOC
+	- Takes our code dependencies, injects them into the code where needed
+	
+Spring Bean Container
+	- Holds Spring Beans
+	- Spring can give it to us, when we need
+	- Manages the Spring Bean Lifecycle
+
+How do make Spring Beans?
+	- XML Config
+		- beans.xml
+		- <beans>
+			<bean id = "nameOfBean" class = "com.revature.MyClass">
+				<property name = "field" ref = "myDependency"/>
+			</bean>
+			<bean id = "myDependency" class = "com.revature.MyDep"></bean>
+		</beans>
+	- Java Config
+		- 	@Configuration
+			public class SpringConfig {
+				@Bean
+				public MyClass nameOfBean(MyDep myDependency){
+					return new MyClass(myDependency);
+				}
+				
+				@Bean
+				public MyDep myDependency() {
+					return new MyDep();
+				}
+			}
+			
+Bean Scopes:
+	+ Singleton	+ Prototype + Request + Session + Global Session
+	
+How do you access the Spring Container?
+	- Bean Factory: lazily initializes beans, less support, older
+		- or
+	- Application Context: Eagerly initializes beans, support AOP, internationalization, extends Bean Factory
+	
+Implementations of Application Context
+	- ClassPathXmlApplicationContext- local to app
+	- FileSystemXmlApplicationContext- local file on system
+	- XmlWebApplicationContext- from anywhere
+	- AnnotationConfigApplicationContext- for Java config
+
+Types of Dependency Injection:
+	- Constructor
+	- Setter
+	- field
+	- Interface (not supported by Spring)
+
+Bean Wiring: manually associating beans with their dependencies
+
+Autwiring: automagical process of Spring managing our dependencies for us
+
+Types of Autwiring:
+	- ByName \
+				Use setter injection
+	- ByType /
+	- Constructor -> uses constructor injection
+	- default (no)
+	- no
+	
+
+
+
+
+
+
+
+
+
+
+Framework - is not a library
+	- How is it different from a library?
+		- Library? collection of pre-built code (methods)
+			- we can leverage (call) in our program
+			- with a library, we call the library's code, but with a framework, the framework calls our code
+	- Partially complete application
+		- we fill in the missing pieces, to make our app based on buisness requirements
