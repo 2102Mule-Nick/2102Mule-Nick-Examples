@@ -163,3 +163,135 @@ Log session start time Mon Mar 15 12:27:30 EDT 2021<br>
 <td title="root category">root</td>
 <td title="Message">User found in DB</td>
 </tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Mon Mar 15 14:19:11 EDT 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="root category">root</td>
+<td title="Message">Just called AuthService authenticateUser Method</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Mon Mar 15 14:21:29 EDT 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+</table>
+<br>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HTML Layout Log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Mon Mar 15 14:22:15 EDT 2021<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="root category">root</td>
+<td title="Message">Just called AuthService authenticateUser Method</td>
+</tr>
+
+<tr>
+<td>2443</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="root category">root</td>
+<td title="Message">Failure to connect to DB</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">org.postgresql.util.PSQLException: The connection attempt failed.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:315)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:223)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.makeConnection(Driver.java:465)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.Driver.connect(Driver.java:264)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.dao.UserDaoPostgres.getUserByUsername(UserDaoPostgres.java:69)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.AuthServiceImpl.authenticateUser(AuthServiceImpl.java:47)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sun.proxy.$Proxy24.authenticateUser(Unknown Source)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.ui.LoginMenu.displayOptions(LoginMenu.java:84)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.Driver.main(Driver.java:19)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.net.UnknownHostException: null
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.base/java.net.Socket.connect(Socket.java:648)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.PGStream.createSocket(PGStream.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:95)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:98)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 25 more
+</td></tr>
