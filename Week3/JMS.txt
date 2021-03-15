@@ -1,0 +1,121 @@
+JMS - Java Messaging Service
+	- enhance the Java platform
+	- part of JavaEE
+	- defines a set of interfaces and semantics that allow Java applications to communicate using other messaging implementations
+	- Message-Oriented Middleware (MOM)
+	- JSR 914 specification
+	
+Why?
+	Alternatives - Remote Procedure Call (RPC) systems
+					- like Java RMI (remote method invokation)
+					- synchronous, caller is blocked
+					- connot loosley couple applications
+					
+				 - HTTP (web services)
+					- requires a handshake to be established
+					- if the service cannot respond immediatly, the request fails
+	Solution 	- asynchronous interaction model
+				- request and response sent by reliable messaging
+				- ony-way messages
+					- more loosley-coupled
+					- sender does not be active when the message is recieved
+				- allows you to send messsages to multiple servers simulatniously
+			
+Architecture:
+	JMS Provider 	
+		- messaging system that implements the JMS Specification
+		- ActiveMQ
+	JMS Client		
+		- Your app, Java application that either sends, recieves, or sends and recieves messages
+	Messages
+		- Objects that are used to communicate information between JMS Clients
+		- What holds the actual communications
+	Administered Objects
+		- Preconfigured JMS objects that are created by an administrator for the of JMS Clients
+		- 2 types:
+			- Destinations
+			- Connection Factories
+			
+Message Delivery Models:
+	Point-to-Point
+		- message is delivered from a producer to one consumer
+		- messages are delivered to a destination QUEUE
+		- any number of producers can send messages to the QUEUE
+		- each message guerenteed to be delivered to exactly 1 consumer
+		- if no consumers are currently registered, the QUEUE holds the message until one does
+		
+	Publish/Subscribe:
+		- message is delivered from a producer to any number of consumers
+		- Messages delivered to a destination TOPIC
+		- all consumers subscribed to a TOPIC recieve the message
+		- many producers can send messages to the same TOPIC
+		- by default, messages are not held if there are no registered consumers
+		
+		durable subscriptions
+			- a consumer registered with a TOPIC destination that can be inactive at the time the message is sent
+			- in this case, if there are no active registered consumers, the message will be held in the TOPIC until the durables subscriber is active
+		
+		
+Producer	TOPIC		Subscriber
+
+
+						Subscriber
+						
+						
+						Subscriber
+		
+Programming Model
+	- JMS consists of a set of application defined messages and a set of clients that exchange them
+	- Message Structure
+		- Header: 
+			- info required for routing
+			- some of the fields are set automatically by the Provider
+			- required
+		- properties:
+			- set a key/value pairs
+			- provide information about the message
+			- examples: time-created, process
+			- allows clients to filter messages
+			- optional
+		- body:
+			- actual data being transfered
+			- optional
+			
+			
+							Connection Factory
+									|
+									V
+								Connection
+									|
+									V
+		Message Producer	<-	Session		->	Message Consumer
+									|
+									V
+								Message
+								
+								
+								Destination
+								
+Message Consumption
+	Synchronous:
+		- client recieves a message by invoking recieve() method of the MessageConsumer object.
+		- App thread blocks until the method returns
+		- if the message is unavailible, it blocks until the message is availible or until the recieve() times out
+	Asynchronous:
+		- client registers a MessageListener object with the MessageConsumer
+		- App threads are not blocked
+		- similar to a callback function
+		- Client consumes the message when the session invokes the onMessage() method
+		
+Reliable Messaging
+	Persistant Messaging:
+		- Guarenteed to be delieved once an only once
+		- No messages lost
+	Non-Persistant Messaging:
+		- Guarenteed to be delivered at most once
+		- Message loss may occure
+		- uses less bandwidth and overhead when compared to perssitant messaging
+		
+Message Driven Beans MDB
+	- JMS MessageConsumer that implements JMSMessageListener Interface
+	- onMessage() method that is invoked when message is recieved by MDB container
