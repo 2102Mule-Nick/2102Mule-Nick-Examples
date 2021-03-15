@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
@@ -15,6 +16,7 @@ import com.revature.exception.UserNameTaken;
 import com.revature.exception.UserNotFound;
 import com.revature.pojo.User;
 
+//@Component
 public final class UserDaoKryo implements UserDao {
 	
 	private Kryo kryo = new Kryo();
