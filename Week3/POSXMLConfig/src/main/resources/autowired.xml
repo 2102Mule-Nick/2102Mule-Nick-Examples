@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="welcomeMenu" class="com.revature.ui.WelcomeMenu" autowire="byName">
+	</bean>
+	
+	<bean id="loginMenu" class="com.revature.ui.LoginMenu" autowire="byType">
+	</bean>
+	
+	<bean id="authService" class="com.revature.service.AuthServiceImpl" scope="singleton" autowire="byType">
+	</bean>
+	
+	<bean id="userDaoPostgres" class="com.revature.dao.UserDaoPostgres" scope="singleton"> <!-- Other scopes: prototype, session, request, globalSession -->
+	
+	</bean>
+	
+</beans>

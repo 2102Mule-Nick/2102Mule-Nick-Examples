@@ -1,0 +1,39 @@
+XML: Extensible Markup Language
+	- create documents made up of user defined tags
+		<someTagName>someValue</someTagName>
+	- designed to describe data in a structured manner
+	- Not for presentation
+	
+	Uses:
+		- transfer data
+			- over the internet
+			- could be used for apps to communicate
+		- configuration files for frameworks (how used in Spring and Maven)
+		- data storage
+		
+	Benefits:
+		- platform independent
+		- network protocal neutral
+		
+	Valid vs. Well-Formed
+		
+	"Well-Formed" = syntactically correct
+	"Valid" = conforms to a DTD or XSD, checks the structure of the xml, optional
+	DTD - Document Type Definition
+		- tags with regular expressions *older
+	XSD - XML Schema Definition
+		- allows for datatypes
+		
+XML Parsers: (specific to the framework your using)
+	DOM - Document Object Model
+		- pulls entire document into memory
+		- creates a tree to store all the data
+		- Can edit document
+		- Random Access
+	
+	SAX	- Simple API for XML Parsing
+		- Event Driven
+		- very little of the document is stored in memory at any given time
+		- goes through line by line
+		- quicker
+		- used by the DOM parser
