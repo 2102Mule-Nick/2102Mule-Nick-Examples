@@ -1,0 +1,53 @@
+Aspect Oriented Programming [AOP]
+	- Spring AOP
+		- Module of the Spring framework
+		- Opens up Springs AOP functionality to the developer
+	- Spring leverages AspectJ
+		- the leading AOP framework for Spring
+	- Aspect
+		- Modularization of a Cross Cutting Concern
+		- In Spring AOP, the Aspect is a class
+	- Cross Cutting Concern
+	
+		Presentation Layer		Buisness Layer		Data Layer
+		
+Logging
+
+Exception
+Hanlding
+
+Security
+
+Transactions
+
+
+		- handled through code injection
+	- Advice
+		- what you want the code to do, at a particular point
+		- In Spring AOP, Advice are methods
+		- this is the code that will be injected
+		- Types of Advice
+			- When the advice is run
+			- Before
+			- After
+			- After Returning
+			- After Throwing
+			- Around
+	- Joinpoint
+		- potential location an aspect can intercept
+		- in Spring AOP, this is any method invokation
+	- Pointcut
+		- where we actually intercept code
+		- in Spring, defined by a predicate written in pointcut expression language, to describe one or several joinpoints
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
