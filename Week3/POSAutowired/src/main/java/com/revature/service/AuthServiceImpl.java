@@ -14,6 +14,8 @@ import com.revature.pojo.User;
 public class AuthServiceImpl implements AuthService {
 	
 	Logger log = Logger.getRootLogger();
+	
+	private User currentUser;
 
 	//@Autowired - field injection (using relfection)
 	private UserDao userDao;
@@ -47,6 +49,7 @@ public class AuthServiceImpl implements AuthService {
 		User existingUser = userDao.getUserByUsername(user.getUsername());
 
 		if (existingUser.getPassword().equals(user.getPassword())) {
+			this.currentUser = existingUser;
 			return existingUser;
 		}
 
@@ -86,6 +89,11 @@ public class AuthServiceImpl implements AuthService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public User getCurrentUser() {
+		return currentUser;
 	}
 
 }

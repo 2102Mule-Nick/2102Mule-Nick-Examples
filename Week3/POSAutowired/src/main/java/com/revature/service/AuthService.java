@@ -16,5 +16,7 @@ public interface AuthService {
 	public User updateUser(User user, String password);
 
 	public boolean removeUser(User user);
+	
+	public User getCurrentUser();
 
 }

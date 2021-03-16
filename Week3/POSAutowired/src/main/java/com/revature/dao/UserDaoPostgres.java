@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import javax.jms.Message;
+import javax.jms.TextMessage;
+import javax.jms.TopicPublisher;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -58,6 +62,7 @@ public class UserDaoPostgres implements UserDao {
 	public User getUserByUsername(String username) throws UserNotFound {
 		
 		messageSender.simpleSend("Retrieving user " + username);
+	
 		
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -91,6 +96,7 @@ public class UserDaoPostgres implements UserDao {
 				user = new User();
 				user.setUsername(rs.getString("username"));
 				user.setPassword(rs.getString("pass_word"));
+				user.setUserId(rs.getInt("user_id"));
 			}
 			
 		} catch (SQLException e) {

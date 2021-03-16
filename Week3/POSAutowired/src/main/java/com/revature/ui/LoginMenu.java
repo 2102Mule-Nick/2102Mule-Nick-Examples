@@ -20,9 +20,20 @@ public class LoginMenu implements Menu {
 	
 	private Menu welcomeMenu;
 	
+	private Menu cartMenu;
+	
+	private Menu nextMenu;
+	
 	public Menu getWelcomeMenu() {
 		return welcomeMenu;
 	}
+	
+	@Autowired
+	public void setCartMenu(Menu cartMenu) {
+		this.cartMenu = cartMenu;
+	}
+
+
 
 	@Autowired
 	public void setWelcomeMenu(Menu welcomeMenu) {
@@ -57,11 +68,14 @@ public class LoginMenu implements Menu {
 
 	@Override
 	public Menu advance() {
-		return welcomeMenu;
+		return nextMenu;
 	}
 
 	@Override
 	public void displayOptions() {
+		
+		nextMenu = welcomeMenu;
+		
 		System.out.println("Please Enter Username");
 		String username = scan.nextLine();
 		System.out.println("Please Enter Password");
@@ -93,6 +107,7 @@ public class LoginMenu implements Menu {
 		
 		try {
 			authService.authenticateUser(user);
+			nextMenu = cartMenu;
 			System.out.println("Login successful");
 			//throw new Error();
 		} catch (UserNotFound e) {
