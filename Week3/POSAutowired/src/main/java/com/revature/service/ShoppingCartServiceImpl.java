@@ -3,19 +3,32 @@ package com.revature.service;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.revature.dao.ItemInventory;
 import com.revature.exception.OutOfStockException;
+import com.revature.messaging.JmsMessageSender;
 import com.revature.pojo.Cart;
 import com.revature.pojo.Item;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	
+	private JmsMessageSender messageSender;
+
+
+	@Autowired
+	public void setMessageSender(JmsMessageSender messageSender) {
+		this.messageSender = messageSender;
+	}
 	
 	@Override
 	public void addItem(int productId, int quantity, Cart cart) throws OutOfStockException {
+		
 
 		Item item = ItemInventory.getItemByProductId(productId);
+		
+		messageSender.simpleSend("Item added to the cart " + item.getItemName());
 		
 		if (quantity > item.getQuantity()) {
 			throw new OutOfStockException("Quantity does not meet purchase requirements");
