@@ -4,6 +4,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.revature.messaging.JmsMessageSender;
 import com.revature.pojo.Item;
 
 /*
@@ -16,6 +20,15 @@ import com.revature.pojo.Item;
  * From an inner scope we can view variables defined in an outer scope, but we cannot see variables from an outer scope defined in an inner scope
  */
 public class ItemInventory {
+	
+	private JmsMessageSender messageSender;
+
+
+	@Autowired
+	public void setMessageSender(JmsMessageSender messageSender) {
+		this.messageSender = messageSender;
+	}
+	
 	
 	//static scope
 	private final static List<Item> ITEM_LIST = new LinkedList<>();
