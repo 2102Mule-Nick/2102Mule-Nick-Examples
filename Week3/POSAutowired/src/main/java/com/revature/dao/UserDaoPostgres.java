@@ -14,14 +14,22 @@ import org.springframework.stereotype.Component;
 
 import com.revature.exception.UserNameTaken;
 import com.revature.exception.UserNotFound;
+import com.revature.messaging.JmsMessageSender;
 import com.revature.pojo.User;
 import com.revature.util.ConnectionFactoryPostgres;
 
 @Component
 public class UserDaoPostgres implements UserDao {
 	
+	private JmsMessageSender messageSender;
+	
 	@Autowired
 	Logger log;
+
+	@Autowired
+	public void setMessageSender(JmsMessageSender messageSender) {
+		this.messageSender = messageSender;
+	}
 
 	@Override
 	public void createUser(User user) throws UserNameTaken {
@@ -48,6 +56,8 @@ public class UserDaoPostgres implements UserDao {
 
 	@Override
 	public User getUserByUsername(String username) throws UserNotFound {
+		
+		messageSender.simpleSend("Retrieving user " + username);
 		
 		try {
 			Class.forName("org.postgresql.Driver");

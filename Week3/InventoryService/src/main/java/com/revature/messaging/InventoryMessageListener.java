@@ -5,10 +5,10 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class JmsMessageListener implements MessageListener {
+@Service
+public class InventoryMessageListener implements MessageListener {
 
 	@Override
 	public void onMessage(Message message) {
@@ -16,15 +16,14 @@ public class JmsMessageListener implements MessageListener {
 		if (message instanceof TextMessage) {
 			
 			try {
-				String msg = ((TextMessage) message).getText();
-				System.out.println("================MESSAGE RECIEVED: " + msg + "===================");
+				String text = ((TextMessage)message).getText();
+				System.out.println("Hanlding message from InventoryService: " + text);
 			} catch (JMSException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
 		}
-		
 	}
 
 }

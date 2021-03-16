@@ -18,6 +18,17 @@ public class LoginMenu implements Menu {
 
 	private Scanner scan;
 	
+	private Menu welcomeMenu;
+	
+	public Menu getWelcomeMenu() {
+		return welcomeMenu;
+	}
+
+	@Autowired
+	public void setWelcomeMenu(Menu welcomeMenu) {
+		this.welcomeMenu = welcomeMenu;
+	}
+
 	public AuthService getAuthService() {
 		return authService;
 	}
@@ -46,7 +57,7 @@ public class LoginMenu implements Menu {
 
 	@Override
 	public Menu advance() {
-		return null;
+		return welcomeMenu;
 	}
 
 	@Override
