@@ -12,6 +12,9 @@ import com.revature.ui.WelcomeMenu;
 public class Driver {
 
 	public static void main(String[] args) {
+		
+		//Only necessary if you are not running a standalone ActiveMQ broker
+		//setUpActiveMQ();
 
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		
