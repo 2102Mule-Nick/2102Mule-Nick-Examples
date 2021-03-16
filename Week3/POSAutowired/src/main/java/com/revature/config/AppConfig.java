@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.Queue;
+import javax.jms.Topic;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,6 +31,7 @@ public class AppConfig {
 	public static final String BROKER_URL = "tcp://localhost:61616";
 
 	public static final String EXAMPLE_QUEUE = "EXAMPLE_QUEUE";
+	public static final String EXAMPLE_TOPIC = "EXAMPLE_TOPIC";
 
 	@Bean
 	@Scope("singleton")
@@ -56,6 +59,11 @@ public class AppConfig {
 	public Queue destinationQueue() {
 		return new ActiveMQQueue(EXAMPLE_QUEUE);
 	}
+	
+	@Bean
+	public Topic destinationTopic() {
+		return new ActiveMQTopic(EXAMPLE_TOPIC);
+	}
 
 	// this will allow us to consume messages from the queue, using Spring for help
 
@@ -64,7 +72,10 @@ public class AppConfig {
 			JmsMessageListener messageListener) {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
-		container.setDestinationName(EXAMPLE_QUEUE);
+//		container.setDestinationName(EXAMPLE_QUEUE);
+		container.setDestinationName(EXAMPLE_TOPIC);
+		container.setPubSubDomain(true);
+		
 		container.setMessageListener(messageListener);
 		return container;
 	}
@@ -74,6 +85,7 @@ public class AppConfig {
 	public JmsTemplate jmsTemplate(ConnectionFactory connectionFactory) {
 		JmsTemplate template = new JmsTemplate();
 		template.setConnectionFactory(connectionFactory);
+		
 		return template;
 	}
 
