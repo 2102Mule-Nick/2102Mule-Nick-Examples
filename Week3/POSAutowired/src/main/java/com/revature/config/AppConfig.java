@@ -34,12 +34,13 @@ public class AppConfig {
 
 	public static final String EXAMPLE_QUEUE = "EXAMPLE_QUEUE";
 	public static final String EXAMPLE_TOPIC = "EXAMPLE_TOPIC";
-	
+
 	@Bean
 	@Scope("prototype")
 	public Connection conn() {
 		return ConnectionFactoryPostgres.getConnection();
 	}
+
 
 	@Bean
 	@Scope("singleton")

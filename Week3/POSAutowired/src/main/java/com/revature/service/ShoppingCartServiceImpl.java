@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.CartDao;
-import com.revature.dao.ItemInventory;
 import com.revature.exception.OutOfStockException;
 import com.revature.messaging.JmsMessageSender;
 import com.revature.pojo.Cart;
@@ -16,7 +15,6 @@ import com.revature.pojo.Item;
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-	
 	private CartDao cartDao;
 	
 	private JmsMessageSender messageSender;
@@ -32,9 +30,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 	
 	@Override
+
 	public void addItem(Item item, int quantity, Cart cart) throws OutOfStockException {
 		
 
+		messageSender.simpleSend("Item added to the cart " + item.getItemName());
+		
 		messageSender.simpleSend("Item added to the cart " + item.getItemName());
 		
 		if (quantity > item.getQuantity()) {
