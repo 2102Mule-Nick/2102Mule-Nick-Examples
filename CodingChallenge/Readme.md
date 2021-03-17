@@ -12,13 +12,13 @@ Create a functional family tree application using Java and SQL.
 - [ ] 
 - [ ] A User can view the full family tree visually in the console
   - Example:
-`| Joe Bob - Jill Bob |`
-`__________|___________________________________________`
-`|Jim Bob - Jess Bob | John Bob - Jane Bob | Josh Bob |`
-`_________|______________ ______|_______________`
-`|James Bob - Jamie Bob | |Jack Bob - Julie Bob|`
-`___________|_`
-`|Joshuau Bob|`
+  - `| Joe Bob - Jill Bob |`
+  - `__________|___________________________________________`
+  - `|Jim Bob - Jess Bob | John Bob - Jane Bob | Josh Bob |`
+  - `_________|______________ ______|_______________`
+  - `|James Bob - Jamie Bob | |Jack Bob - Julie Bob|`
+  - `___________|_`
+  - `|Joshuau Bob|`
 
 ## Requirements
 - [ ] Business logic is being handled in Java appropriately and inputs are being taken from Console
