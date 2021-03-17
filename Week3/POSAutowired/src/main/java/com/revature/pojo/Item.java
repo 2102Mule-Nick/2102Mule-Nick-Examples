@@ -29,7 +29,7 @@ public class Item {
 	//classes - cannot be derived (extended)
 	//methods - cannot be overriden
 	//variables - cannot changed, for primatives cannot change initial value, for objects you cannot rereferrence them
-	private final int productId;
+	private int productId;
 
 	private float cost;
 
@@ -50,6 +50,10 @@ public class Item {
 		return this.productId; // this refers to the instance object that the method was called on
 	}
 	
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
 	public void setCost(float cost) {
 		if (cost > 0) {
 

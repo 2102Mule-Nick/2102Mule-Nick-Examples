@@ -1,5 +1,6 @@
 package com.revature.config;
 
+import java.sql.Connection;
 import java.util.Scanner;
 
 import javax.jms.ConnectionFactory;
@@ -21,6 +22,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 
 import com.revature.messaging.JmsMessageListener;
+import com.revature.util.ConnectionFactoryPostgres;
 
 @Configuration
 @ComponentScan("com.revature")
@@ -32,6 +34,13 @@ public class AppConfig {
 
 	public static final String EXAMPLE_QUEUE = "EXAMPLE_QUEUE";
 	public static final String EXAMPLE_TOPIC = "EXAMPLE_TOPIC";
+
+	@Bean
+	@Scope("prototype")
+	public Connection conn() {
+		return ConnectionFactoryPostgres.getConnection();
+	}
+
 
 	@Bean
 	@Scope("singleton")

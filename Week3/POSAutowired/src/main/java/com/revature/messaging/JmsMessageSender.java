@@ -34,8 +34,13 @@ public class JmsMessageSender {
 	public void simpleSend(String msg) {
 		
 //		jmsTemplate.send(queue, (s) -> s.createTextMessage(msg));
+
 		jmsTemplate.send(topic, (s) -> s.createTextMessage(msg));
 		
+	}
+	
+	public void sendToQueue(String msg) {
+		jmsTemplate.send(queue, (s) -> s.createTextMessage(msg));
 	}
 	
 }

@@ -13,7 +13,7 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		//Only necessary if you are not running a standalone ActiveMQ broker
+		//Only necessary if you are not running a stand alone ActiveMQ broker
 		//setUpActiveMQ();
 
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
