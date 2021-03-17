@@ -9,7 +9,7 @@ Create a functional family tree application using Java and SQL.
 - [ ] A User can add a Person to the tree by inputing the person's name and their parent's names
 - [ ] When searching for a Person by name, it will display the User's parents, children, siblings, and grandparents
 - [ ] A User can update a Person's relationships in the tree 
-- [ ] 
+- [ ] A User can delete a Person from the tree
 - [ ] A User can view the full family tree visually in the console
   - Example:
   - `| Joe Bob - Jill Bob |`
