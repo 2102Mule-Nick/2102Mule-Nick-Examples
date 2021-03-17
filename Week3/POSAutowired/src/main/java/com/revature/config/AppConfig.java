@@ -34,6 +34,7 @@ public class AppConfig {
 
 	public static final String EXAMPLE_QUEUE = "EXAMPLE_QUEUE";
 	public static final String EXAMPLE_TOPIC = "EXAMPLE_TOPIC";
+	public static final String INVENTORY_QUEUE = "INVENTORY_QUEUE";
 
 	@Bean
 	@Scope("prototype")
@@ -56,6 +57,7 @@ public class AppConfig {
 	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory() {
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL);
+		connectionFactory.setTrustAllPackages(true);
 		return connectionFactory;
 	}
 
@@ -67,6 +69,11 @@ public class AppConfig {
 	@Bean
 	public Queue destinationQueue() {
 		return new ActiveMQQueue(EXAMPLE_QUEUE);
+	}
+	
+	@Bean
+	public Queue inventoryQueue() {
+		return new ActiveMQQueue(INVENTORY_QUEUE);
 	}
 	
 	@Bean

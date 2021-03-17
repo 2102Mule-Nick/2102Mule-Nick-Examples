@@ -34,9 +34,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	public void addItem(Item item, int quantity, Cart cart) throws OutOfStockException {
 		
 
-		messageSender.simpleSend("Item added to the cart " + item.getItemName());
-		
-		messageSender.simpleSend("Item added to the cart " + item.getItemName());
+		messageSender.sendToInventoryQueue(item, quantity);
 		
 		if (quantity > item.getQuantity()) {
 			throw new OutOfStockException("Quantity does not meet purchase requirements");

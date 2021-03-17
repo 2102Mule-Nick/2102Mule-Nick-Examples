@@ -1,5 +1,6 @@
 package com.revature.config;
 
+import java.sql.Connection;
 import java.util.Scanner;
 
 import javax.jms.ConnectionFactory;
@@ -16,10 +17,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.jms.annotation.EnableJms;
+import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 
 import com.revature.messaging.InventoryMessageListener;
+import com.revature.util.ConnectionFactoryPostgres;
 
 @Configuration
 @ComponentScan("com.revature")
@@ -31,6 +34,13 @@ public class AppConfig {
 	
 	public static final String EXAMPLE_QUEUE = "EXAMPLE_QUEUE";
 	public static final String EXAMPLE_TOPIC = "EXAMPLE_TOPIC";
+	public static final String INVENTORY_QUEUE = "INVENTORY_QUEUE";
+	
+	@Bean
+	@Scope("prototype")
+	public Connection conn() {
+		return ConnectionFactoryPostgres.getConnection();
+	}
 	
 	@Bean
 	@Scope("singleton")
@@ -46,6 +56,7 @@ public class AppConfig {
 	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory() {
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL);
+		connectionFactory.setTrustAllPackages(true);
 		return connectionFactory;
 	}
 	
@@ -64,15 +75,17 @@ public class AppConfig {
 		return new ActiveMQTopic(EXAMPLE_TOPIC);
 	}
 	
+	
+	
 	//this will allow us to consume messages from the queue, using Spring for help
 	@Bean
-	public DefaultMessageListenerContainer jmsContainer(ConnectionFactory connectionFactory, InventoryMessageListener messageListener) {
-		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
+	public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(ConnectionFactory connectionFactory) {
+		DefaultJmsListenerContainerFactory container = new DefaultJmsListenerContainerFactory();
 		container.setConnectionFactory(connectionFactory);
 		//container.setDestinationName(EXAMPLE_QUEUE);
-		container.setDestinationName(EXAMPLE_TOPIC);
-		container.setPubSubDomain(true);
-		container.setMessageListener(messageListener);
+		//container.setDestinationName(EXAMPLE_TOPIC);
+		//container.setPubSubDomain(true);
+		//container.setMessageListener(messageListener);
 		return container;
 	}
 	

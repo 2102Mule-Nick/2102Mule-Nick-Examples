@@ -4,25 +4,40 @@ import javax.jms.Queue;
 import javax.jms.Topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
+
+import com.revature.dto.ItemInventory;
+import com.revature.pojo.Item;
 
 @Service
 public class JmsMessageSender {
 
 	private JmsTemplate jmsTemplate;
 	
-	private Queue queue;
+	private Queue exampleQueue;
 
 	private Topic topic;
+	
+	private Queue inventoryQueue;
+	
+	
+	
 	@Autowired
-	public void setJmsTemplate(JmsTemplate jmsTemplate) {
-		this.jmsTemplate = jmsTemplate;
+	@Qualifier("destinationQueue")
+	public void setExampleQueue(Queue exampleQueue) {
+		this.exampleQueue = exampleQueue;
 	}
 
 	@Autowired
-	public void setQueue(Queue queue) {
-		this.queue = queue;
+	public void setInventoryQueue(Queue inventoryQueue) {
+		this.inventoryQueue = inventoryQueue;
+	}
+
+	@Autowired
+	public void setJmsTemplate(JmsTemplate jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
 	}
 	
 	
@@ -40,7 +55,14 @@ public class JmsMessageSender {
 	}
 	
 	public void sendToQueue(String msg) {
-		jmsTemplate.send(queue, (s) -> s.createTextMessage(msg));
+		jmsTemplate.send(exampleQueue, (s) -> s.createTextMessage(msg));
+	}
+	
+	public void sendToInventoryQueue(Item item, int quantity) {
+		
+		ItemInventory ii = new ItemInventory(item, quantity);
+		
+		jmsTemplate.send(inventoryQueue, (s) -> s.createObjectMessage(ii));
 	}
 	
 }
