@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import com.revature.pojo.Cart;
 import com.revature.pojo.Item;
 
-@Component
+
 public class CartDaoPostgres implements CartDao {
 
 	private Connection conn;

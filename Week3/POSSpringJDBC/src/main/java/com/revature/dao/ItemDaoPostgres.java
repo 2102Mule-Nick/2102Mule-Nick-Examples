@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.revature.pojo.Item;
 
-@Component
+
 public class ItemDaoPostgres implements ItemDao {
 
 	private Connection conn;

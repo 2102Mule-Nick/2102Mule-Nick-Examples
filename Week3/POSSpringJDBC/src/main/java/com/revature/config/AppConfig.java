@@ -49,7 +49,7 @@ public class AppConfig {
 	public static final String DATASOURCE_DRIVERNAME = "org.postgresql.Driver";
 	public static final String DATASOURCE_USERNAME = System.getenv("POS_DB_USERNAME");
 	public static final String DATASOURCE_PASSWORD = System.getenv("POS_DB_PASSWORD");
-	public static final String DATASOURCE_SCHEMA = "public";
+	public static final String DATASOURCE_SCHEMA = "project0_test";
 	
 
 	
