@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.dao.CartDao;
 import com.revature.exception.OutOfStockException;
@@ -30,7 +31,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 	
 	@Override
-
+	@Transactional
 	public void addItem(Item item, int quantity, Cart cart) throws OutOfStockException {
 		
 

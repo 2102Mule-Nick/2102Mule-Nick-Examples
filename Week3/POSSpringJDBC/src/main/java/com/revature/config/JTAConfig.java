@@ -33,7 +33,6 @@ import bitronix.tm.resource.jms.PoolingConnectionFactory;
 
 @Configuration
 @ComponentScan("com.revature") // searches in that package, and any nested packages for Spring annotations
-@EnableAspectJAutoProxy
 @EnableJms
 @EnableTransactionManagement
 public class JTAConfig {
@@ -48,7 +47,7 @@ public class JTAConfig {
 
 	// DataSource info
 	public static final String DATASOURCE_URL = "jdbc:postgresql://" + System.getenv("POS_DB_URL") + ":5432/"
-			+ System.getenv("POS_DB_NAME") + "?";
+			+ System.getenv("POS_DB_NAME");
 	public static final String DATASOURCE_DRIVERNAME = "org.postgresql.xa.PGXADataSource";
 	public static final String DATASOURCE_USERNAME = System.getenv("POS_DB_USERNAME");
 	public static final String DATASOURCE_PASSWORD = System.getenv("POS_DB_PASSWORD");
@@ -133,14 +132,14 @@ public class JTAConfig {
 
 	@Bean(destroyMethod = "shutdown")
 	@DependsOn("btmConfig")
-	public TransactionManager bitronixTransactionManager() {
+	public TransactionManager primaryTransactionManager() {
 		return TransactionManagerServices.getTransactionManager();
 	}
 
 	@Bean
-	public JtaTransactionManager jtaTransactionManager(TransactionManager bitronixTransactionManager) {
+	public JtaTransactionManager jtaTransactionManager(TransactionManager primaryTransactionManager) {
 		JtaTransactionManager jtaTransactionManager = new JtaTransactionManager();
-		jtaTransactionManager.setTransactionManager(bitronixTransactionManager);
+		jtaTransactionManager.setTransactionManager(primaryTransactionManager);
 		return jtaTransactionManager;
 	}
 
