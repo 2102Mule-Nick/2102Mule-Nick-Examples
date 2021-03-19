@@ -26,7 +26,7 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import com.revature.messaging.JmsMessageListener;
 
 @Configuration
-@ComponentScan("com.revature")
+@ComponentScan("com.revature")//searches in that package, and any nested packages for Spring annotations
 @EnableAspectJAutoProxy
 @EnableJms
 public class AppConfig {

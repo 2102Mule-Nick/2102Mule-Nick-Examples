@@ -10,7 +10,13 @@ import com.revature.exception.InvalidPassword;
 import com.revature.exception.UserNotFound;
 import com.revature.pojo.User;
 import com.revature.service.AuthService;
-
+/*
+ * Because this is marked @Component, Spring will create this as a Spring Bean in the Spring Bean Container
+ * This means, essentially, when the program starts, Spring will create new instance of it, by calling it's
+ * constructor, name it `loginMenu`, because of the name of the class, and give it to us whenever we
+ * ask for an instance of either the LoginMenu specificaly, or a menu, if there are no other Menu
+ * beans
+ */
 @Component
 public class LoginMenu implements Menu {
 

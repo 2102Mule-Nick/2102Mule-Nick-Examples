@@ -15,6 +15,7 @@ public class ItemDaoPostgres implements ItemDao {
 
 	private Connection conn;
 
+	//This tells spring I need a connection, and to get it for me
 	@Autowired
 	public void setConn(Connection conn) {
 		this.conn = conn;
