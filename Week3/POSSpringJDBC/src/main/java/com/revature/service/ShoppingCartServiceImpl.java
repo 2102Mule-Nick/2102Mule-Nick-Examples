@@ -4,9 +4,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.CartDao;
+import com.revature.dao.CartDaoJDBCTemplate;
 import com.revature.exception.OutOfStockException;
 import com.revature.messaging.JmsMessageSender;
 import com.revature.pojo.Cart;
@@ -15,12 +17,12 @@ import com.revature.pojo.Item;
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-	private CartDao cartDao;
+	private CartDaoJDBCTemplate cartDao;
 	
 	private JmsMessageSender messageSender;
 
 	@Autowired
-	public void setCartDao(CartDao cartDao) {
+	public void setCartDao(CartDaoJDBCTemplate cartDao) {
 		this.cartDao = cartDao;
 	}
 

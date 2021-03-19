@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.revature.dao.UserDao;
+import com.revature.dao.UserDaoJDBCTemplate;
 import com.revature.exception.InvalidPassword;
 import com.revature.exception.UserNameTaken;
 import com.revature.exception.UserNotFound;
@@ -69,7 +70,7 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	@Autowired //constructor injection
-	public AuthServiceImpl(UserDao userDao) {
+	public AuthServiceImpl(UserDaoJDBCTemplate userDao) {
 		super();
 		this.userDao = userDao;
 	}

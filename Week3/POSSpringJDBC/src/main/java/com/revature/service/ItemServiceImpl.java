@@ -6,15 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.ItemDao;
+import com.revature.dao.ItemDaoJDBCTemplate;
 import com.revature.pojo.Item;
 
 @Service
 public class ItemServiceImpl implements ItemService {
 	
-	private ItemDao itemDao;
+	private ItemDaoJDBCTemplate itemDao;
+	
+	
 	
 	@Autowired
-	public void setItemDao(ItemDao itemDao) {
+	public void setItemDao(ItemDaoJDBCTemplate itemDao) {
 		this.itemDao = itemDao;
 	}
 
