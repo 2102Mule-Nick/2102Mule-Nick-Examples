@@ -4,20 +4,25 @@ import org.apache.activemq.broker.BrokerFactory;
 import org.apache.activemq.broker.BrokerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 import com.revature.config.AppConfig;
+import com.revature.config.JTAConfig;
 import com.revature.ui.Menu;
 import com.revature.ui.WelcomeMenu;
 
 public class Driver {
-
+	
 	public static void main(String[] args) {
 		
 		//Only necessary if you are not running a stand alone ActiveMQ broker
 		//setUpActiveMQ();
 
-		ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		//The ApplicationContext is the interfact that allows us to interact with our Bean Container
+		//ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		ApplicationContext appContext = new AnnotationConfigApplicationContext(JTAConfig.class);
 		
+		//The most important method in the Application Context is getBean
 		Menu menu = appContext.getBean("welcomeMenu", WelcomeMenu.class);
 		
 		do {

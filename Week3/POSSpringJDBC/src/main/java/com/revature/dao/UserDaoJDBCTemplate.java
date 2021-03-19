@@ -15,20 +15,18 @@ import com.revature.pojo.User;
 public class UserDaoJDBCTemplate implements UserDao {
 
 	private JdbcTemplate jdbcTemplate;
-	
+
 	private UserRowMapper userRowMapper;
-	
+
 	@Autowired
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
+
 	@Autowired
 	public void setUserRowMapper(UserRowMapper userRowMapper) {
 		this.userRowMapper = userRowMapper;
 	}
-
-
 
 	@Override
 	public void createUser(User user) throws UserNameTaken {
@@ -38,13 +36,13 @@ public class UserDaoJDBCTemplate implements UserDao {
 
 	@Override
 	public User getUserByUsername(String username) throws UserNotFound {
-		
+
 		String sql = "select * from user_acc where username = ?";
 
-		//Object[] args = new Object[] {username};
-		
+		// Object[] args = new Object[] {username};
+
 		List<User> userList = jdbcTemplate.query(sql, userRowMapper, username);
-		
+
 		return userList.get(0);
 	}
 

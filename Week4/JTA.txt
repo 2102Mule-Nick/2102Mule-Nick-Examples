@@ -1,0 +1,152 @@
+We add an itme to our cart...
+
+1. Checks if in stock
+2. add to cart
+3. Updating inventory
+
+Handling this Transaction can cause a problem.
+
+We need a solution...
+
+JTA - Java Transaction API
+	- allows our application to perform "dirstributed transactions"
+	- Distributed Transactions: transactions that access and update data on two or more networked computer resources
+	- provides standard Java interfaces for all parts involved in the distributed transaction
+	
+Data Transaction Processing (DTP) model
+	- your application
+	- application server (for full JEE project) or a standalone JTA implementation
+	- Transaction Manager
+	- Resource Adapter
+	- Resource Manager
+	
+Transaction Manager
+	- coordinates the funciton of the distributed transaction
+	- makes final decision to commit or rollback the transaction
+	
+Other JTA Interfaces
+	- User Transaction
+		- javax.transaction.UserTransaction
+		- provides ability to control transaction boundries programmatically
+		- starts a global transaction
+		- associates transaction with the calling thread
+	- Transaction Manager
+		- javax.transaction.TransactionManager
+		- allows application server to control the transaction boundries for your app
+	- XAResource
+		- javax.transaction.xa.XAResource
+		- Java mapping of the standard XA (eXtended Architecture)
+		- based off off X/Open CAE specification
+	
+X/Open XA
+	- specification released in 1991
+	- designed by X/Open, now part of The Open Group
+	- used to handle DTP
+	
+	Goal - guarantee atomcity in "global transactions" across hererogeneous components
+	- uses two-phase commit to ensure all transaction changes either take effect or do not
+	
+Single-Phase Commit (1pc): used for transactions that involve only a single resource.  [what you have been doing already] Simply involves sending a commit request to the only resource.
+
+Two-Phase Commit (2pc)
+	- type of Atomic Commitment Protocol (ACP)
+	- "distributed algorithm" that coordinates all the processes that participate in distributed atomic transaction
+	- it isn't perfect
+		- but is does handle most common issues including process, network node or communication failures
+	
+The Two Phases
+	
+	1. commit-request phase (voting phase):
+		- coordinator process attempts to prepare all transactions participating processes to take steps for commiting or aborting.  Each process, then votes individually whether it is able to commit or has to abort.
+	2. commit phase:
+		- based on the voting of the participants, coordinator decides whether to commit or abor the transaction
+		- only commits if all participants vote yes
+		- coordinator notifies results to all participants
+		- participants follow with the needed action (commit or abort)
+
+Message Flow
+
+Coordinator										Participants
+
+				Query to Commit
+	
+												Prepare or Abort
+				Vote Yes or No
+	
+if all "yes"
+	commit
+else
+	abort
+				Commit or Rollback
+	
+													Commit or Abort
+				Acknowledgment
+	
+End
+	
+		Old Way							Using JTA
+	
+
+	Application							Application
+	
+										UserTransaction
+	JDBC Driver
+		Manager							TransactionManager
+	
+										ResourceManager
+	JDBC Driver							(XAResource)
+(org.postgresql.Driver)
+	
+	
+		DB									DB or 
+										other Resource
+										
+Distributed Transaction Process
+											
+	1. Application sends a request for a transation to the transaction manager
+	2. a "transaction branch" is associated with a request to each resource manager involed in the distributed transacion
+	3. the work is done in each transaction
+	4. the transaction manager polls all the resource managers involved to see is each is ready to commit
+	5. if any resource responsds negatively (votes no), the transaction manager rolls back the whole transaction.  If not, the transaction manager commits the whole transaction
+	6. the results are returned to the application
+	
+Demarcating Transactions
+	
+	Bean-Managed Transactions (BMT)
+		- programmatically demarcated
+		- done within your bean implementation
+		- transaction boundries are completely controlled by the application
+	
+	Container-Managed Transaction (CMT)
+		- controlled by the container
+		- the container either joins an existing transaction or starts a new transaction for the application and ends the newly created transaction
+		- not necessary for your implemetation to provide code for managing the transaction
+		
+Spring JTA
+	- provides both programmatic (BMT) and declarative (CMT) trasnaction management
+	- PlatformTransactionManager
+		- programmatic transaction demarcation
+	- or -
+	- JTA Transaction Manager
+		- declarative transaction demarcation
+		- AOP based solution
+	- also handle transaction propagation behavior
+	
+Stand Alone JTA Implementation
+	JBossTS
+		- JTA & JTS API support
+		- built in recovery service
+		- no out-of-the-box Spring support
+	
+	Atomikos Transaction Essentials
+		- production quality implementation
+		- out-of-the-box support for Spring
+		- provides pooled connection for DB's and JMS
+		
+	Bitronix JTA
+		- newest, as good or better than others
+		- transaction recovery support
+		- provides support equal to the other other implemetnations for resources
+		- out-of-the-box support for Spring
+		- used by Mulesoft also
+	

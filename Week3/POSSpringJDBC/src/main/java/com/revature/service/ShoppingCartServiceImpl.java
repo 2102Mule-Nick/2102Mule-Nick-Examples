@@ -34,7 +34,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	public void addItem(Item item, int quantity, Cart cart) throws OutOfStockException {
 		
 
-		messageSender.sendToInventoryQueue(item, quantity);
+		
 		
 		if (quantity > item.getQuantity()) {
 			throw new OutOfStockException("Quantity does not meet purchase requirements");
@@ -48,6 +48,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		cart.setTotal(itemCost + cart.getTotal());
 		
 		cartDao.addItemToCart(cart, item, quantity);
+		
+		messageSender.sendToInventoryQueue(item, quantity);
 		
 	}
 

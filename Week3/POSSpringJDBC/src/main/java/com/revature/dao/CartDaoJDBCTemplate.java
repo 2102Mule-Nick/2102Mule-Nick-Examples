@@ -3,7 +3,6 @@ package com.revature.dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -82,9 +81,18 @@ public class CartDaoJDBCTemplate implements CartDao {
 		
 		Object[] args = new Object[] {cart.getCartId(), item.getProductId(), quantity};
 		
-		List<Cart> newCart = jdbcTemplate.query(sql, args, cartRowMapper);
+		//jdbcTemplate.update(sql, cartRowMapper, cart.getCartId(), item.getProductId(), quantity);
 		
-		return newCart.get(0);
+		jdbcTemplate.update(
+				connection -> {
+					PreparedStatement ps = connection.prepareStatement(sql);
+					ps.setInt(1, cart.getCartId());
+					ps.setInt(2, item.getProductId());
+					ps.setInt(3, quantity);
+					return ps;
+				});
+		
+		return cart;
 
 		
 	}
