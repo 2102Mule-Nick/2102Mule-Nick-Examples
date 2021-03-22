@@ -18,10 +18,9 @@ import com.revature.pojo.Item;
 public class CartDaoJDBCTemplate implements CartDao {
 
 	private JdbcTemplate jdbcTemplate;
-	
+
 	private CartRowMapper cartRowMapper;
-	
-	
+
 	@Autowired
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
@@ -36,23 +35,23 @@ public class CartDaoJDBCTemplate implements CartDao {
 	public Cart createCart(Cart cart) throws SQLException {
 		// TODO Auto-generated method stub
 		String sql = "insert into cart (user_id, total) values(?, ?)";
-		
+
 		/*
-		Object[] args = new Object[] {cart.getUserId(), cart.getTotal()};
-		
-		int newCart = jdbcTemplate.update(sql, args);
-		*/
+		 * Object[] args = new Object[] {cart.getUserId(), cart.getTotal()};
+		 * 
+		 * int newCart = jdbcTemplate.update(sql, args);
+		 */
 		KeyHolder keyHolder = new GeneratedKeyHolder();
-		
+
 		jdbcTemplate.update(connection -> {
 			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			ps.setInt(1, cart.getUserId());
 			ps.setFloat(2, cart.getTotal());
 			return ps;
 		}, keyHolder);
-		
+
 		cart.setCartId((int) keyHolder.getKeys().get("cart_id"));
-		
+
 		return cart;
 	}
 
@@ -78,23 +77,16 @@ public class CartDaoJDBCTemplate implements CartDao {
 	public Cart addItemToCart(Cart cart, Item item, int quantity) {
 		// TODO Auto-generated method stub
 		String sql = "insert into cart_item values(?, ?, ?)";
-		
-		Object[] args = new Object[] {cart.getCartId(), item.getProductId(), quantity};
-		
-		//jdbcTemplate.update(sql, cartRowMapper, cart.getCartId(), item.getProductId(), quantity);
-		
-		jdbcTemplate.update(
-				connection -> {
-					PreparedStatement ps = connection.prepareStatement(sql);
-					ps.setInt(1, cart.getCartId());
-					ps.setInt(2, item.getProductId());
-					ps.setInt(3, quantity);
-					return ps;
-				});
-		
+
+		Object[] args = new Object[] { cart.getCartId(), item.getProductId(), quantity };
+
+		// jdbcTemplate.update(sql, cartRowMapper, cart.getCartId(),
+		// item.getProductId(), quantity);
+
+		jdbcTemplate.update(sql, args);
+
 		return cart;
 
-		
 	}
 
 	@Override

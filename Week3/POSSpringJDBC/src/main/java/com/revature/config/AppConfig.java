@@ -87,7 +87,7 @@ public class AppConfig {
 	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory() {
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL);
-		connectionFactory.setTrustAllPackages(true);
+		//connectionFactory.setTrustAllPackages(true);
 		return connectionFactory;
 	}
 
