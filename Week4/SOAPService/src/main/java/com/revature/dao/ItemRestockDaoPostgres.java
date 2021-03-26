@@ -63,7 +63,7 @@ public class ItemRestockDaoPostgres implements ItemRestockDao {
 	@Override
 	public boolean updateItemQuantity(int itemId, int quantity) {
 
-		String sql = "update item set quantity = ? where product_id = ?";
+		String sql = "update item set remining_items = remining_items + ? where product_id = ?";
 
 		if (jdbcTemplate.update(sql, quantity, itemId) == 0) {
 			return false;

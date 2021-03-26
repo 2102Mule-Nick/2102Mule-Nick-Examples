@@ -39,7 +39,7 @@ public class AppConfig {
 		
 		@Bean
 		public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-			System.out.println("do not run this in test");
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!do not run this in test!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			JdbcTemplate template = new JdbcTemplate();
 			template.setDataSource(dataSource);
 			return template;

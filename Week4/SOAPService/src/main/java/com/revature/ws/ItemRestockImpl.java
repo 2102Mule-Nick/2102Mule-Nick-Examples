@@ -1,34 +1,34 @@
 package com.revature.ws;
 
-import com.revature.pojo.Item;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.revature.pojo.Item;
+import com.revature.service.ItemRestockService;
+
+@Service
 public class ItemRestockImpl implements ItemRestock {
 	
+	private ItemRestockService itemRestockService;
 	
+	@Autowired
+	public void setItemRestockService(ItemRestockService itemRestockService) {
+		this.itemRestockService = itemRestockService;
+	}
 
 	@Override
 	public String restockItem(Item item, int quantity) {
-		String result = "Adding " + quantity + " units to " + item.getProductName();
-		System.out.println(result);
-		return result;
+		return itemRestockService.restockItem(item, quantity);
 	}
 
 	@Override
 	public Boolean canRestock(Item item) {
-
-		boolean canRestock = Math.random() > 0.5;
-		
-		if(canRestock) System.out.println("Yes");
-		else System.out.println("No");
-		
-		return canRestock;
+		return itemRestockService.canRestock(item);
 	}
 
 	@Override
 	public String discontinueItem(Item item) {
-		String results = item.getProductName() + " is now no longer available";
-		
-		return results;
+		return itemRestockService.discontinueItem(item);
 	}
 
 }

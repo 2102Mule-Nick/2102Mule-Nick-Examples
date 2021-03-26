@@ -12,7 +12,8 @@ import org.springframework.stereotype.Service;
 import com.revature.config.AppConfig;
 import com.revature.dao.InventoryDao;
 import com.revature.dto.ItemInventory;
-import com.revature.pojo.Item;
+import com.revature.ws.ItemRestock;
+import com.revature.ws.ItemRestockImplService;
 
 @Service
 public class InventoryMessageListener{
@@ -53,6 +54,23 @@ public class InventoryMessageListener{
 				System.out.println("Item: " + ii.getItem());
 				System.out.println("Quantity: " + ii.getQuantity());
 				inventoryDao.updateQuantity(ii.getItem(), ii.getQuantity());
+				
+				//setting up to call Soap Restock Service
+				ItemRestockImplService iris = new ItemRestockImplService();
+				ItemRestock ir = iris.getItemRestockImplPort();
+				
+				//creating Item for Soap Service
+				com.revature.ws.Item soapItem = new com.revature.ws.Item();
+				soapItem.setProductId(ii.getItem().getProductId());
+				soapItem.setProductName(ii.getItem().getItemName());
+				
+				//Checking if can restock item
+				if (ir.canRestock(soapItem)) {
+					if (ii.getQuantity() < 10) {
+						//if quantity less than 10, add 50
+						ir.restockItem(soapItem, 50);
+					}
+				}
 			} catch (JMSException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

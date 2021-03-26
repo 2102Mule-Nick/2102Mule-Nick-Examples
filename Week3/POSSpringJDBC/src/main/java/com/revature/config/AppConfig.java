@@ -30,7 +30,7 @@ import com.revature.messaging.JmsMessageListener;
 @ComponentScan("com.revature")//searches in that package, and any nested packages for Spring annotations
 @EnableAspectJAutoProxy
 @EnableJms
-@ImportResource({"classpath:beans.xml"})
+//@ImportResource({"classpath:beans.xml"})
 public class AppConfig {
 
 	//JMS Broker Url
