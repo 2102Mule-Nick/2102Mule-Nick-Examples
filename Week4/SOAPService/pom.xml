@@ -88,6 +88,13 @@
 			<artifactId>mockito-core</artifactId>
 			<version>3.8.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
