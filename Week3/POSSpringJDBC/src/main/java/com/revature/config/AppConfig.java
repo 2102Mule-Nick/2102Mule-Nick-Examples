@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -29,6 +30,7 @@ import com.revature.messaging.JmsMessageListener;
 @ComponentScan("com.revature")//searches in that package, and any nested packages for Spring annotations
 @EnableAspectJAutoProxy
 @EnableJms
+@ImportResource({"classpath:beans.xml"})
 public class AppConfig {
 
 	//JMS Broker Url

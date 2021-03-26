@@ -4,6 +4,7 @@ import org.apache.activemq.broker.BrokerFactory;
 import org.apache.activemq.broker.BrokerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.revature.config.AppConfig;
@@ -21,6 +22,8 @@ public class Driver {
 		//The ApplicationContext is the interfact that allows us to interact with our Bean Container
 		//ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(JTAConfig.class);
+		
+		//ApplicationContext appContext2 = new ClassPathXmlApplicationContext("beans.xml");
 		
 		//The most important method in the Application Context is getBean
 		Menu menu = appContext.getBean("welcomeMenu", WelcomeMenu.class);

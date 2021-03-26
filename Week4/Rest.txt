@@ -1,0 +1,109 @@
+SOAP (Simple Object Access Protocol)
+	- Web Service
+	- a type of messaging protocol
+	- xml based
+	- developed in 1998 at Microsoft
+	- Contract Based
+		- WSDL (Web Service Description Language)
+	- Sends/Recieves SOAPMessages
+		- written in xml
+	- JAX-WS
+		- also used JAX-B
+			for databinding (marshalling and unmarshalling xml)
+			
+SOAP Message (1.1)
+
+	<SOAP-ENV: Envelope ...>
+		<SOAP-ENV: Header>
+			...
+		</SOAP-ENV: Header>
+		<SOAP-ENV: Body>
+			//content
+			<SOAP-ENV: Fault/>
+		</SOAP-ENV: Body>
+	</SOAP-ENV: Envelope>
+	
+SOAP Message Tags:
+	- Envelope: root tag
+	- Header: Specify Req/Resp
+			used to turn on:
+				security
+				transaction
+				reliable messaging
+	- Body: the actual message (content)
+	- Fault: Errors (how to handle exceptions in the messaging)
+		4 Child Tags:
+			- faultCode: text code to indicate the class of errors
+				- Version Mismatch
+				- Must Understand
+				- Client
+				- Server
+			- faultString: text message explaining the error
+			- faultActor: text string indicating who caused the error
+			- detail -Specify application-specific error message
+			
+WSDL
+	- Web Service Description Language
+	- Contrct for our SOAP based Web Services
+	- written in XML
+	
+	WSDL Tags:
+		- definitions: root-tag
+		- types: defines the types (objects) used in our SOAP Messages
+		- message: defines the types of SOAP Messages that can be sent by either the Client or the Server
+		- portType: collection of operations
+		- operation: defines the actions that can be done on the API, including the inputs, outputs, and possible faults
+		- binding: defines the protocol & message binding style for a portType operation
+		- service: defines the name & location (address and port #) of the service
+		- import: we can import from another wsdl (optional)
+		
+	Message Binding
+		- the WSDL binding is to describe how a service is bound to the SOAP message
+		- Should tell the client how the actions(operations) need to be converted into a SOAP message
+		
+		4 types of Protocols (binding style)
+			- document/literal
+			- document/encoded
+			- RPC/literal
+			- RPC/encoded
+			
+
+Contract First -or- Contract Last
+
+write the wsdl		write Java classes
+first				first
+
+generate our		generate the wsdl
+java classes
+
+Both approaches use a
+SOAP Engine Tool:
+	- Apache AXIS I
+	- Apache AXIS II
+	- Apache CXF <- what we are going to be using
+	- Spring
+
+	
+	Client								Server
+	
+									SEI*	  API	  Buisness Logic
+					WSDL
+										*Service Endpoint
+	wsimport (JDK)			SOAPMessage	Interface	
+							Req
+	Generates
+	Client Code		Service Locator
+					
+SEI		Buisness Objects
+
+
+			SOAPMessage Resp
+
+
+
+
+
+
+
+	
+	

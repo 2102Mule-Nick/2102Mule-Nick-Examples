@@ -1,0 +1,170 @@
+SOA - Service Oriented Architecture
+	- an architecture for building buisness applicaitons as a set of loosley coupled "black box" components, orchestrated to deliver a well defined level of service.
+	
+	black box 	- abstraction
+				- only need to know what it does, not how, to work with
+				- Engineering Term
+				- device, system, or object that takes an input and produces an output without disclosing the implementation
+				
+Web Services
+	- Applications communicating over the internet
+	- an implementation, or way to achieve, a Service Oriented Architecture (SOA)
+	
+Advantages
+	- code reusablity
+	- Distributed Buisness apps
+	- Interoperability
+	- Loosley Coupled
+	- Hide Buisness Logic
+	
+Examples
+	- REST
+	- SOAP
+	- EJB
+	- RMI 
+	
+Networking
+
+OSI Model (Open Systems Interconnection Model)
+	- conceptual model, set of standards for telecommunications or computer system communication functions
+	
+	Goal: 	interoperability of diverse communication systems
+			standard communication protocols
+			
+Layered Model
+	- 7 layers
+	- layers of abstraction
+	- each layer serves info to next layer
+	- starts from physical tranfer of bits all the way to the representation of data for your application
+
+- implemented by standardized communication protocols
+
+
+Layer 1 Physical - physically sending raw bits of data
+
+Layer 2 Data Link - relible transmission of data frames between 2 nodes physically connected
+
+Layer 3 Network - structuring and manage a multi-node network, controls, network addressing, routing, traffic control
+
+Layer 4 Transport - reliable transmission of data between points on a network, controls segmentation, acknowledgement, and mulitplexing
+
+Layer 5 Session - continuous exchanges of messages between 2 nodes
+
+Layer 6 Presentaion - translation of data between application and service, may include decryption/encryption or data compression
+
+Layer 7 Application - High Level API's
+
+
+Transport Layer (4)
+	- functional and procedural way of transferring data from source to host
+	- Segments data given by application layer
+	- able to keep track of segments that fail and resend them
+	- an acknowledgement of successful data tranfer, triggers next piece of data to be sent
+	
+Transport Layer Classes
+
+TP0 - TP1 - TP2 - TP3 - TP4
+ |						 |
+ V						 V
+No error				for less
+recovery				reliable networks
+						like the internet
+						Closest to TCP
+
+*TCP and UDP are often considered Layer 4 protocols
+	they don't actually strictly implement Layer 4
+	
+Transport Layer Security (TLS)
+	- provides security for this layer
+	
+
+Application Layer (7)
+	- Closest to the end-user
+	- OSI Model and the End-User directly work with the application
+	- the application itself, is not part of OSI Model
+	- responsible for
+		- identifying communication partners
+		- determining resource availability
+		- synchronizing communications
+	- examples: HTTP, remote database protocol
+	
+
+TCP/IP (Transmission Control Protocol & Internet Protocol)
+	- conceptual model
+	- set of communication protocols used by the internet and similar networks
+	
+4 Layers
+
+	Application Layer
+		- performs function of the Application, Presentation, and Session Layers of OSI
+		- Node-to-Node communication and controls user-interface specifications
+		- HTTP, HTTPS, FTP, SSH, SMTP....
+		
+	Host-to-Host (Transport Layer)
+		- close to transport layer of OSI
+		- TCP & UDP
+		
+	Internet Layer
+		- close to the Network Layer of OSI
+		- protocol for logical transmission of data over the internet
+		- IP, ICMP, ARP
+	
+	Network Layer (Link)
+		- Data Link and Physical Layer
+		- hardware addressing
+
+Differences
+	- TCP/IP is a simplificaiton of the OSI Model
+	- OSI, model came before the protocols, with TCP/IP, the protocols came before the model
+	- Allows for graceful closes
+	- TCP/IP is not just one formalized definition, different deffinitions from different places
+	
+
+DNS (Domain Name Service)
+	- translates a domain name to an actual registered ip address
+	- a computer cannot connect to another computer without it's ip address
+	- We don't want to memozired every ip address
+	
+	
+	
+	Your computer
+	
+			google.com		8.35.192.0/21
+								
+					DNS Server
+					
+					
+	Googles Servers
+
+
+HTTP (Hyper Text Transfer Protocol)
+	- asci text, in multiple line format
+	- divided into Header and Body
+	- always contains a Request and Response
+
+	- Example:
+		PUT /do_thing HTTP/1.1
+		HOST: localHost:8080
+		Connection: keep-alive
+		Content-Type: text/html
+		Content-Length: 255
+		
+		body info
+		body info
+		body info
+	
+	Verbs:
+		- POST (Insert)
+		- GET (Select)
+		- PUT (Update)
+		- DELETE (Delete)
+		- Connect (Tunnel)
+		- Options (Describe)
+		- PATCH (Partial Update)
+		- TRACE (Test Path)
+		- HEAD (no body)
+
+
+Architecture? Structure of a program
+	- organized the relationship between the different parts of our code
+	- how the different pieces fit together
