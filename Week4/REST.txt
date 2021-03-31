@@ -1,0 +1,61 @@
+REST
+	- Type of Web Service
+	- use it to build web api's	
+
+			SOAP	 vs.	REST
+
+Contract	WSDL			no contract
+
+Security	built-in		not built-in
+			ws-security		(HTTPS)
+			
+Transaction	built-in		no
+			ws-transaction
+			
+Reliable	built-in		no
+Messaging	ws-reliable-
+			messaging
+		
+tools-based	yes				no
+			(soap-engine)
+			
+transport	http, sftp,		http/https 
+protocol	smpt, ....
+
+message		xml				xml, json, plain-text
+language
+support
+
+Not a very fair comparison...
+
+SOAP is a messaging protocol,
+
+but REST is an architecture
+
+REST is built off of HTTP.
+
+REST
+	- REpresentational State Transfer
+	- transfering a representation of the state of our resources
+	- Resource, some data we hold in the application
+	- built off of HTTP
+	- is a stateless web service
+	
+	
+HTTP
+	- hyper text transfer protocol
+	- methods
+		- Get - Post - Put - Delete
+		
+	Idempotent - an operation done 1 time has the same result as that operation being done 1-x times. 
+	
+	Safe - does not effect the state of the application
+	
+			SAFE		IDEMPOTENT
+	GET		yes			yes
+	
+	POST	no			no
+	
+	PUT		no			yes
+
+	DELETE	no			yes
