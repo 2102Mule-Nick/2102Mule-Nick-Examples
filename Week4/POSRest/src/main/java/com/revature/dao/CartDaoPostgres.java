@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -81,6 +82,12 @@ public class CartDaoPostgres implements CartDao {
 		cart.setCartId((int) rs.getLong(1));
 
 		return cart;
+	}
+
+	@Override
+	public List<Cart> getAllCart() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
