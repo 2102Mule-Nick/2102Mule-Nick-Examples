@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,7 @@ public class ItemDaoJDBCTemplate implements ItemDao {
 
 	@Override
 	public void updateItem(Item item) {
-		String sql = "UPDATE item SET item_cost = ?, item_name = ?, remining_items = ?, discount = ? "
+		String sql = "UPDATE item SET item_cost = ?, item_name = ?, remaining_items = ?, discount = ? "
 				+ "WHERE product_id = ?";
 		
 		jdbcTemplate.update(connection -> {
@@ -79,16 +80,17 @@ public class ItemDaoJDBCTemplate implements ItemDao {
 
 	@Override
 	public void addItem(Item item) {
-		String sql = "INSERT INTO item (item_name, remining_item, discount, discontinue)"
-				+ "VALUES (?, ?, ?, False)";
+		String sql = "INSERT INTO item (item_name, item_cost, remining_items, discount, discontinue)"
+				+ "VALUES (?, ?, ?, ?, False)";
 		
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		
 		jdbcTemplate.update(connection -> {
-			PreparedStatement ps = connection.prepareStatement(sql);
+			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, item.getItemName());
-			ps.setInt(2, item.getQuantity());
-			ps.setFloat(3, item.getDiscount());
+			ps.setFloat(2, item.getCost());
+			ps.setInt(3, item.getQuantity());
+			ps.setFloat(4, item.getDiscount());
 			return ps;
 		}, keyHolder);
 		

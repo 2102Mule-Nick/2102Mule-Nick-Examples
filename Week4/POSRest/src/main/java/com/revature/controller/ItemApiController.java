@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.dao.ItemDaoJDBCTemplate;
@@ -38,6 +39,8 @@ public class ItemApiController {
 	@GetMapping("/getallitems")
 	@ResponseBody
 	public List<Item> getAllItems() {
+		System.out.println("Getting all items");
+		
 		List<Item> itemList;
 		
 		itemList = itemDao.getAllItems();
@@ -50,9 +53,11 @@ public class ItemApiController {
 		this.itemDao = itemDao;
 	}
 	
-	@GetMapping("/getoneitem")
+	@GetMapping("/getoneitem/")
 	@ResponseBody
-	public Item getOneItem(@RequestBody String name) {
+	public Item getOneItem(@RequestHeader String name) { //changed from @RequestBody to @RequestHeader
+		
+		System.out.println("item name: " + name);
 		
 		Item item = itemDao.getByName(name);
 		
