@@ -71,9 +71,11 @@ public class ItemDaoJDBCTemplate implements ItemDao {
 	public void removeItem(Item item) {
 		String sql = "UPDATE item SET discontinue = TRUE WHERE product_id = ?";
 		
+		Item removeItem = this.getByName(item.getItemName()); //added this code since the item might not have the product_id associated with it yet
+		
 		jdbcTemplate.update(connection -> {
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setInt(1, item.getProductId());
+			ps.setInt(1, removeItem.getProductId());
 			return ps;
 		});
 	}
