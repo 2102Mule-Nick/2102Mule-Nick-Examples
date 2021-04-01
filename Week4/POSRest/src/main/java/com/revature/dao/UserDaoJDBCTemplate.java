@@ -45,6 +45,10 @@ public class UserDaoJDBCTemplate implements UserDao {
 
 		List<User> userList = jdbcTemplate.query(sql, userRowMapper, username);
 
+		if (userList.size() == 0) {
+			throw new UserNotFound();
+		}
+		
 		return userList.get(0);
 	}
 

@@ -71,7 +71,7 @@ public class ItemDaoJDBCTemplate implements ItemDao {
 
 	@Override
 	public void removeItem(Item item) {
-		String sql = "UPDATE item SET discontinue = TRUE WHERE product_id = ?";
+		String sql = "UPDATE item SET discontinued = TRUE WHERE product_id = ?";
 		
 		Item removeItem = this.getByName(item.getItemName()); //added this code since the item might not have the product_id associated with it yet
 		
@@ -84,7 +84,7 @@ public class ItemDaoJDBCTemplate implements ItemDao {
 
 	@Override
 	public void addItem(Item item) {
-		String sql = "INSERT INTO item (item_name, item_cost, remining_items, discount, discontinue)"
+		String sql = "INSERT INTO item (item_name, item_cost, remining_items, discount, discontinued)"
 				+ "VALUES (?, ?, ?, ?, False)";
 		
 		KeyHolder keyHolder = new GeneratedKeyHolder();

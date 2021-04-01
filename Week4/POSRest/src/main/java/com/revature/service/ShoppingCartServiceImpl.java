@@ -17,7 +17,7 @@ import com.revature.pojo.Item;
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	private CartDao cartDao;
-	
+
 	private JmsMessageSender messageSender;
 
 	@Autowired
@@ -29,32 +29,43 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	public void setMessageSender(JmsMessageSender messageSender) {
 		this.messageSender = messageSender;
 	}
-	
+
 	@Override
 	@Transactional
-	public void addItem(Item item, int quantity, Cart cart) throws OutOfStockException {
-		
+	public Cart addItem(Item item, int quantity, Cart cart) throws OutOfStockException {
+
 		messageSender.sendToInventoryQueue(item, quantity);
-		
+
 		if (quantity > item.getQuantity()) {
 			throw new OutOfStockException("Quantity does not meet purchase requirements");
 		}
-		
+
 		List<Item> itemList = cart.getItems();
-		itemList.add(item);
-		cart.getQuantity().add(quantity);
-		item.setQuantity(item.getQuantity()-quantity);
+
+		if (itemList.contains(item)) {
+			int index = cart.getItems().indexOf(item);
+			cart.getQuantity().set(index, cart.getQuantity().get(index) + quantity);
+		} else {
+
+			itemList.add(item);
+			cart.getQuantity().add(quantity);
+			cartDao.addItemToCart(cart, item, quantity);
+		}
+		
+		item.setQuantity(item.getQuantity() - quantity);
 		float itemCost = calculateItemTotal(item, quantity);
 		cart.setTotal(itemCost + cart.getTotal());
-		
-		cartDao.addItemToCart(cart, item, quantity);
+
+		cartDao.updateCart(cart);
+
+		return cart;
 		
 	}
 
 	@Override
 	public void removeItem(int productId, Cart cart) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -62,11 +73,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+
 	private float calculateItemTotal(Item item, int quantity) {
-		
+
 		float itemCost = item.getCost();
-		itemCost -= (item.getDiscount() * itemCost)/100;
+		itemCost -= (item.getDiscount() * itemCost) / 100;
 		return quantity * itemCost;
 	}
 
@@ -101,6 +112,4 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		cartDao.updateCart(cart);
 	}
 
-	
-	
 }

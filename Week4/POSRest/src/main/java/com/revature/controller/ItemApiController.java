@@ -3,10 +3,11 @@ package com.revature.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -36,7 +37,7 @@ public class ItemApiController {
 	 * 
 	 */
 
-	@GetMapping("/getallitems")
+	@GetMapping("/item")
 	@ResponseBody
 	public List<Item> getAllItems() {
 		System.out.println("Getting all items");
@@ -53,9 +54,9 @@ public class ItemApiController {
 		this.itemDao = itemDao;
 	}
 	
-	@GetMapping("/getoneitem/")
+	@GetMapping("/item/{name}")
 	@ResponseBody
-	public Item getOneItem(@RequestHeader String name) { //changed from @RequestBody to @RequestHeader
+	public Item getOneItem(@PathVariable String name) {//(@RequestHeader String name) { //changed from @RequestBody to @RequestHeader
 		
 		System.out.println("item name: " + name);
 		
@@ -64,7 +65,7 @@ public class ItemApiController {
 		return item;
 	}
 	
-	@PutMapping("/updateoneitem")
+	@PutMapping("/item")
 	@ResponseBody
 	public String updateOneItem(@RequestBody Item item) {
 		System.out.println("Updating item");
@@ -74,7 +75,7 @@ public class ItemApiController {
 		return "Item update successfully";
 	}
 	
-	@DeleteMapping("/deleteoneitem")
+	@DeleteMapping("/item")
 	@ResponseBody
 	public String deleteOneItme(@RequestBody Item item) {
 		
@@ -83,7 +84,7 @@ public class ItemApiController {
 		return "Item removed from inventory";
 	}
 	
-	@PutMapping("/createitem")
+	@PostMapping("/item")
 	@ResponseBody
 	public String createItem(@RequestBody Item item) {
 		itemDao.addItem(item);

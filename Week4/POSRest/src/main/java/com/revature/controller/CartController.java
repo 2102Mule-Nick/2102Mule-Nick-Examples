@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.dto.ItemInventory;
+import com.revature.exception.OutOfStockException;
 import com.revature.pojo.Cart;
 import com.revature.pojo.Item;
 import com.revature.service.ShoppingCartService;
@@ -35,7 +37,7 @@ public class CartController {
 
 	//@GetMapping("/cart")
 	@RequestMapping(path = "/cart", method = RequestMethod.GET)
-	//@ResponseBody
+	@ResponseBody
 	public List<Cart> getAllCarts(){
 		return shoppingCartService.getAllCarts();
 	}
@@ -85,6 +87,24 @@ public class CartController {
 		shoppingCartService.updateCart(cart);
 		
 		return "Item updated successfully!";
+	}
+	
+	@PostMapping(path = "/cart/{cartId}/item")
+	public ResponseEntity<Cart> addItemToCart(@PathVariable int cartId, @RequestBody ItemInventory itemInventory) {
+		
+		try {
+			
+			Cart cart = shoppingCartService.getCartById(cartId);
+			
+			if (cart == null) {
+				return ResponseEntity.notFound().build();
+			}
+			
+			return ResponseEntity.ok(shoppingCartService.addItem(itemInventory.getItem(), itemInventory.getQuantity(), cart));
+		} catch (OutOfStockException e) {
+			return ResponseEntity.badRequest().build();
+		}
+		
 	}
 	
 }

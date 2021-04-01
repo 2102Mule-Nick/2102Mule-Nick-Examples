@@ -116,6 +116,11 @@ public class Item implements Serializable {
 		this.setQuantity(quantity);
 		this.setDiscount(discount);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Item [productId=" + productId + ", cost=" + cost + ", itemName=" + itemName + ", quantity=" + quantity
+				+ ", discount=" + discount + "]";
+	}
 	
 }

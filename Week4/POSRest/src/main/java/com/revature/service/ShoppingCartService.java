@@ -8,7 +8,7 @@ import com.revature.pojo.Item;
 
 public interface ShoppingCartService {
 	
-	public void addItem(Item item, int quantity, Cart cart) throws OutOfStockException;
+	public Cart addItem(Item item, int quantity, Cart cart) throws OutOfStockException;
 	
 	public void removeItem(int productId, Cart cart);
 	
