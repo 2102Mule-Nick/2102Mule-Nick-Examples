@@ -67,6 +67,7 @@ public class ItemApiController {
 	@PutMapping("/updateoneitem")
 	@ResponseBody
 	public String updateOneItem(@RequestBody Item item) {
+		System.out.println("Updating item");
 		
 		itemDao.updateItem(item);
 		

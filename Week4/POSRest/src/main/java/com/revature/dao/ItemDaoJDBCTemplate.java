@@ -52,8 +52,10 @@ public class ItemDaoJDBCTemplate implements ItemDao {
 
 	@Override
 	public void updateItem(Item item) {
-		String sql = "UPDATE item SET item_cost = ?, item_name = ?, remaining_items = ?, discount = ? "
+		String sql = "UPDATE item SET item_cost = ?, item_name = ?, remining_items = ?, discount = ? "
 				+ "WHERE product_id = ?";
+		
+		Item updateItem = this.getByName(item.getItemName()); //added this code since the item might not have the product_id associated with it yet
 		
 		jdbcTemplate.update(connection -> {
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -61,7 +63,7 @@ public class ItemDaoJDBCTemplate implements ItemDao {
 			ps.setString(2, item.getItemName());
 			ps.setInt(3, item.getQuantity());
 			ps.setFloat(4, item.getDiscount());
-			ps.setInt(5, item.getProductId());
+			ps.setInt(5, updateItem.getProductId());
 			return ps;
 		});
 		
