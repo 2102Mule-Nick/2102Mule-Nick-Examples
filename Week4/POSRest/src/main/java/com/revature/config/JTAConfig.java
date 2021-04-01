@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jms.annotation.EnableJms;
@@ -47,6 +48,7 @@ import bitronix.tm.resource.jms.PoolingConnectionFactory;
 @EnableJms
 @EnableTransactionManagement
 @Component("config")
+@EnableAspectJAutoProxy
 public class JTAConfig {
 
 	// JMS Broker Url

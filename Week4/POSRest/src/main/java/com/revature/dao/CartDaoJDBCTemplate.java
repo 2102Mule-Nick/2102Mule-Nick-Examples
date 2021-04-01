@@ -3,6 +3,7 @@ package com.revature.dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -30,6 +31,8 @@ public class CartDaoJDBCTemplate implements CartDao {
 	public void setCartRowMapper(CartRowMapper cartRowMapper) {
 		this.cartRowMapper = cartRowMapper;
 	}
+	
+
 
 	@Override
 	public Cart createCart(Cart cart) throws SQLException {
@@ -57,20 +60,32 @@ public class CartDaoJDBCTemplate implements CartDao {
 
 	@Override
 	public Cart getCartById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String sql = "select * from cart where cart_id = ?";
+		
+		List<Cart> cartList = jdbcTemplate.query(sql, cartRowMapper, id);
+		
+		System.out.println(cartList);
+		
+		return cartList.get(0);
 	}
 
 	@Override
 	public void deleteCart(int id) {
-		// TODO Auto-generated method stub
+
+		String sql = "delete from cart where cart_id = ?";
+		
+		jdbcTemplate.update(sql, id);
 
 	}
 
 	@Override
 	public void updateCart(Cart cart) {
-		// TODO Auto-generated method stub
-
+		
+		String sql = "update cart set total = ? where cart_id = ?";
+		
+		jdbcTemplate.update(sql,cart.getTotal(), cart.getCartId());
+		
 	}
 
 	@Override
@@ -93,6 +108,16 @@ public class CartDaoJDBCTemplate implements CartDao {
 	public Cart removeItemFromCart(Cart cart, Item item) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Cart> getAllCart() {
+
+		String sql = "select * from cart";
+		
+		List<Cart> cartList = jdbcTemplate.query(sql,cartRowMapper);
+		
+		return cartList;
 	}
 
 }

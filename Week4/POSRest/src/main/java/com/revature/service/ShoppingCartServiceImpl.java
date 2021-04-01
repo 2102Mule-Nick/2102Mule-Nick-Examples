@@ -81,6 +81,26 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		return null;
 	}
 
+	@Override
+	public List<Cart> getAllCarts() {
+		return cartDao.getAllCart();
+	}
+
+	@Override
+	public Cart getCartById(int id) {
+		return cartDao.getCartById(id);
+	}
+
+	@Override
+	public void deleteCartById(int id) {
+		cartDao.deleteCart(id);
+	}
+
+	@Override
+	public void updateCart(Cart cart) {
+		cartDao.updateCart(cart);
+	}
+
 	
 	
 }
