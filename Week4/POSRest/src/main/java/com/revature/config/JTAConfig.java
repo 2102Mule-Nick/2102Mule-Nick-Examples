@@ -58,16 +58,17 @@ public class JTAConfig {
 	public static final String INVENTORY_QUEUE = "INVENTORY_QUEUE";
 
 	// DataSource info
+	public static final String DATASOURCE_SCHEMA = System.getenv("POS_DB_SCHEMA");
 	public static final String DATASOURCE_URL = "jdbc:postgresql://" + System.getenv("POS_DB_URL") + ":5432/"
-			+ System.getenv("POS_DB_NAME");
+			+ System.getenv("POS_DB_NAME") + "?currentSchema="+ DATASOURCE_SCHEMA;
 	public static final String DATASOURCE_DRIVERNAME = "org.postgresql.xa.PGXADataSource";
 	public static final String DATASOURCE_USERNAME = System.getenv("POS_DB_USERNAME");
 	public static final String DATASOURCE_PASSWORD = System.getenv("POS_DB_PASSWORD");
-	public static final String DATASOURCE_SCHEMA = "public";
+	
 
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
-
+		System.out.println(DATASOURCE_URL);
 		PoolingDataSource dataSource = new PoolingDataSource();
 		dataSource.setClassName(DATASOURCE_DRIVERNAME);
 		dataSource.setUniqueName("PostGresDB");
@@ -76,6 +77,7 @@ public class JTAConfig {
 		dataSource.getDriverProperties().put("Url", DATASOURCE_URL);
 		dataSource.getDriverProperties().put("user", DATASOURCE_USERNAME);
 		dataSource.getDriverProperties().put("password", DATASOURCE_PASSWORD);
+		//dataSource.getDriverProperties().put("schema", DATASOURCE_SCHEMA);
 		dataSource.init();
 		return dataSource;
 
