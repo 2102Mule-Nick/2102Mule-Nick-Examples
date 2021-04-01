@@ -30,7 +30,9 @@ public class UserDaoJDBCTemplate implements UserDao {
 
 	@Override
 	public void createUser(User user) throws UserNameTaken {
-		// TODO Auto-generated method stub
+		String sql = "insert into user_acc(username,pass_word) values (?,?)";
+		jdbcTemplate.update(sql, user.getUsername(),user.getPassword());
+		
 
 	}
 
@@ -48,19 +50,27 @@ public class UserDaoJDBCTemplate implements UserDao {
 
 	@Override
 	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from user_acc";
+
+		List<User> usersList = jdbcTemplate.query(sql, userRowMapper);
+		return usersList;
+
 	}
 
 	@Override
 	public void updateUser(User user, String new_password) {
-		// TODO Auto-generated method stub
-
+		String sql = "update user_acc set pass_word= ? where username=?";
+		jdbcTemplate.update(sql, new_password, user.getUsername());
+		System.out.println("User Updated");
 	}
 
 	@Override
-	public void removeUser(User user) {
-		// TODO Auto-generated method stub
+	public boolean removeUser(User user) {
+	String sql = "delete from user_acc where username =? and pass_word=?";
+	if(jdbcTemplate.update(sql, user.getUsername(),user.getPassword())==0) {
+		return false;
+	}
+	return true;
 
 	}
 

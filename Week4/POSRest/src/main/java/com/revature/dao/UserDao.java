@@ -16,6 +16,6 @@ public interface UserDao {
 	
 	public void updateUser(User user, String new_password);
 	
-	public void removeUser(User user);
+	public boolean removeUser(User user);
 	
 }

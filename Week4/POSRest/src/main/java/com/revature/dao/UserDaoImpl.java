@@ -60,9 +60,9 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void removeUser(User user) {
+	public boolean removeUser(User user) {
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 	public UserDaoImpl() {
