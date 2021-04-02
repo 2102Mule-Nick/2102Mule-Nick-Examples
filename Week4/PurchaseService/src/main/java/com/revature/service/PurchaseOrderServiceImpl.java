@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,17 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 	@Override
 	public PurchaseOrder getPurchaseOrderById(int purchaseOrderId) {
 		return purchaseOrderDao.getPurchaseOrderById(purchaseOrderId);
+	}
+
+	@Override
+	public PurchaseOrder createPurchaseOrder(String date, int cartId) {
+
+		return purchaseOrderDao.createPurchaseOrder(date, cartId);
+	}
+
+	@Override
+	public List<PurchaseOrder> getPurchaseOrderByUserId(int userId) {
+		return purchaseOrderDao.getPurchaseOrdersByUserId(userId);
 	}
 
 }
