@@ -34,4 +34,19 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 		return purchaseOrderDao.getPurchaseOrdersByUserId(userId);
 	}
 
+	@Override
+	public List<PurchaseOrder> getPurchaseOrders() {
+		return purchaseOrderDao.getAllPurchaseOrders();
+	}
+
+	@Override
+	public List<PurchaseOrder> getPurchaseOrdersByDate(String date) {
+		return purchaseOrderDao.getPurchaseOrdersByDate(date);
+	}
+
+	@Override
+	public List<PurchaseOrder> getPurchaseOrdersByDateAndUserId(String date, int userId) {
+		return purchaseOrderDao.getPurchaseOrdersByDateAndUserId(date, userId);
+	}
+
 }

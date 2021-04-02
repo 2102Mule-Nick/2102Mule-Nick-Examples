@@ -48,4 +48,43 @@ public class PurchaseOrderServiceFinder {
 		return purchaseOrders;
 	}
 	
+	public List<PurchaseOrder> getPurchaseOrders(){
+		
+		RestTemplate restTemplate = new RestTemplate();
+
+		ResponseEntity<List<PurchaseOrder>> response =  restTemplate.exchange("http://localhost:8080/PurchaseService/purchase",
+				HttpMethod.GET, null, new ParameterizedTypeReference<List<PurchaseOrder>>() {}); //can also getForObject with PurchaseOrder[].class
+		
+		List<PurchaseOrder> purchaseOrders = response.getBody();
+		
+		return purchaseOrders;
+	}
+	
+	
+	public List<PurchaseOrder> getPurchaseOrdersByDate(String date){
+		
+		RestTemplate restTemplate = new RestTemplate();
+
+		ResponseEntity<List<PurchaseOrder>> response =  restTemplate.exchange("http://localhost:8080/PurchaseService/purchase/date/"
+				+ date, HttpMethod.GET,
+				null, new ParameterizedTypeReference<List<PurchaseOrder>>() {}); //can also getForObject with PurchaseOrder[].class
+		
+		List<PurchaseOrder> purchaseOrders = response.getBody();
+		
+		return purchaseOrders;
+	}
+	
+	public List<PurchaseOrder> getPurchaseOrdersByDateAndUserId(String date, int userId){
+		
+		RestTemplate restTemplate = new RestTemplate();
+
+		ResponseEntity<List<PurchaseOrder>> response =  restTemplate.exchange("http://localhost:8080/PurchaseService/purchase/userdate/"
+				+ userId + "/" + date, HttpMethod.GET,
+				null, new ParameterizedTypeReference<List<PurchaseOrder>>() {}); //can also getForObject with PurchaseOrder[].class
+		
+		List<PurchaseOrder> purchaseOrders = response.getBody();
+		
+		return purchaseOrders;
+	}
+	
 }

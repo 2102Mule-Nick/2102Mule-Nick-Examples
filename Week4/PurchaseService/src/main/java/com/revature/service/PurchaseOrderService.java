@@ -12,4 +12,10 @@ public interface PurchaseOrderService {
 	
 	public List<PurchaseOrder> getPurchaseOrderByUserId(int userId);
 
+	public List<PurchaseOrder> getPurchaseOrders();
+	
+	public List<PurchaseOrder> getPurchaseOrdersByDate(String date);
+	
+	public List<PurchaseOrder> getPurchaseOrdersByDateAndUserId(String date, int userId);
+
 }

@@ -66,7 +66,35 @@ public class PurchaseOrderDaoJDBCTemplate implements PurchaseOrderDao {
 				rs.getInt("cart_id"), rs.getString("purchase_date")), userId);
 
 	}
-	
-	
+
+	@Override
+	public List<PurchaseOrder> getAllPurchaseOrders() {
+		
+		String sql = "select * from purchase_order";
+		
+		return jdbcTemplate.query(sql, (rs, row) -> new PurchaseOrder(rs.getInt("purchase_order_id"),
+				rs.getInt("cart_id"), rs.getString("purchase_date")));
+	}
+
+	@Override
+	public List<PurchaseOrder> getPurchaseOrdersByDate(String date) {
+		
+		String sql = "select * from purchase_order where purchase_date = ?";
+		
+		return jdbcTemplate.query(sql, (rs, row) -> new PurchaseOrder(rs.getInt("purchase_order_id"),
+				rs.getInt("cart_id"), rs.getString("purchase_date")), date);
+	}
+
+	@Override
+	public List<PurchaseOrder> getPurchaseOrdersByDateAndUserId(String date, int userId) {
+		
+		String sql = "select po.purchase_order_id , po.purchase_date , po.cart_id from purchase_order po"
+				+ "	inner join cart c on po.cart_id = c.cart_id"
+				+ "	inner join user_acc ua on c.user_id = ua.user_id"
+				+ "	where ua.user_id = ? and po.purchase_date =?";
+		
+		return jdbcTemplate.query(sql, (rs, row) -> new PurchaseOrder(rs.getInt("purchase_order_id"),
+				rs.getInt("cart_id"), rs.getString("purchase_date")), userId, date);
+	}
 
 }
