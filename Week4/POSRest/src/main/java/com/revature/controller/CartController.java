@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.dao.UserDaoJDBCTemplate;
 import com.revature.dto.ItemInventory;
 import com.revature.exception.OutOfStockException;
 import com.revature.pojo.Cart;
 import com.revature.pojo.Item;
+import com.revature.pojo.PurchaseOrder;
+import com.revature.service.PurchaseOrderServiceFinder;
 import com.revature.service.ShoppingCartService;
 
 @Controller
@@ -32,7 +35,13 @@ public class CartController {
 	public void setShoppingCartService(ShoppingCartService shoppingCartService) {
 		this.shoppingCartService = shoppingCartService;
 	}
-
+	
+	private PurchaseOrderServiceFinder purchaseOrderService;
+	
+	@Autowired
+	public void setPurchaseOrderService(PurchaseOrderServiceFinder purchaseOrderService) {
+		this.purchaseOrderService = purchaseOrderService;
+	}
 
 
 	//@GetMapping("/cart")
@@ -105,6 +114,13 @@ public class CartController {
 			return ResponseEntity.badRequest().build();
 		}
 		
+	}
+	
+	@PostMapping("/cart/purchase")
+	@ResponseBody
+	public PurchaseOrder createPurchaseOrder(@RequestBody PurchaseOrder purchaseOrder) {
+		
+		return purchaseOrderService.createPurchaseOrder(purchaseOrder.getDate(), purchaseOrder.getCartId());
 	}
 	
 }
