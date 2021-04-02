@@ -15,7 +15,9 @@ public class PurchaseOrderList {
 	public List<PurchaseOrder> getPurchaseOrderLists() {
 		return purchaseOrderLists;
 	}
-	
-	
+
+	public void setPurchaseOrderLists(List<PurchaseOrder> purchaseOrderLists) {
+		this.purchaseOrderLists = purchaseOrderLists;
+	}
 	
 }

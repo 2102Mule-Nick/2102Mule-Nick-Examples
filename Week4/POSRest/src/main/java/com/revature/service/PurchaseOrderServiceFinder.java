@@ -2,11 +2,13 @@ package com.revature.service;
 
 import java.util.List;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.revature.pojo.PurchaseOrder;
-import com.revature.wrapper.PurchaseOrderList;
 
 @Service
 public class PurchaseOrderServiceFinder {
@@ -35,11 +37,13 @@ public class PurchaseOrderServiceFinder {
 	
 	public List<PurchaseOrder> getPurchaseOrdersByUserId(int id){
 		RestTemplate restTemplate = new RestTemplate();
+		//PurchaseOrderList response =  restTemplate.getForObject("http://localhost:8080/PurchaseService/purchase/user/"
+		//+ id, PurchaseOrderList.class);
+
+		ResponseEntity<List<PurchaseOrder>> response =  restTemplate.exchange("http://localhost:8080/PurchaseService/purchase/user/"
+		+ id, HttpMethod.GET, null, new ParameterizedTypeReference<List<PurchaseOrder>>() {}); //can also getForObject with PurchaseOrder[].class
 		
-		PurchaseOrderList response =  restTemplate.getForObject("http://localhost:8080/PurchaseService/purchase/user/"
-		+ id, PurchaseOrderList.class);
-		
-		List<PurchaseOrder> purchaseOrders = response.getPurchaseOrderLists();
+		List<PurchaseOrder> purchaseOrders = response.getBody();
 		
 		return purchaseOrders;
 	}

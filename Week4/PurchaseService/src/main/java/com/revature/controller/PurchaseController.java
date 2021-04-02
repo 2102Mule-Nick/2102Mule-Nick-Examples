@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.pojo.PurchaseOrder;
@@ -40,8 +41,8 @@ public class PurchaseController {
 	}
 	
 	@GetMapping("/purchase/user/{userId}")
-	public List<PurchaseOrder> getPurchaseOrdersByUserId(@PathVariable int userId) {
-		
+	public List<PurchaseOrder> getPurchaseOrdersByUserId(@PathVariable int userId) {// could also use (@RequestParam int userId) {
+																					// url would then look like localhost:8080/PurchaseService/purchase?userId=16
 		return purchaseOrderService.getPurchaseOrderByUserId(userId);
 		
 	}

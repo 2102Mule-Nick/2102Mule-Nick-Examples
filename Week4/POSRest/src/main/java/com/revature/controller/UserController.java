@@ -43,7 +43,7 @@ public class UserController {
 		return purchaseOrderService.getPurchaseOrder(purchaseId);
 	}
 	
-	@GetMapping("/user/purchase/user/{userId}")
+	@GetMapping("/user/{userId}/purchase")
 	@ResponseBody
 	public List<PurchaseOrder> getPurchaseOrdersByUserId(@PathVariable int userId) {
 		return purchaseOrderService.getPurchaseOrdersByUserId(userId);
