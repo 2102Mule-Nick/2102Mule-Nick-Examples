@@ -21,7 +21,7 @@ public class FlashCardExtractor implements ResultSetExtractor<FlashCard> {
 		
 		String answer = rs.getString("answer");
 		
-		String category = rs.getString("category");
+		String category = rs.getString("category_name");
 		
 		int difficulty = rs.getInt("difficulty");
 		
