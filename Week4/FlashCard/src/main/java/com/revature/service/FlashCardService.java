@@ -7,5 +7,7 @@ import com.revature.pojo.FlashCard;
 public interface FlashCardService {
 	
 	public List<FlashCard> retrieveAllFlashCards();
+	
+	public FlashCard createFlashCard(FlashCard flashCard);
 
 }

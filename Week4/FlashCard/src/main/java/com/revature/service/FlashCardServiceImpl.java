@@ -42,4 +42,9 @@ public class FlashCardServiceImpl implements FlashCardService {
 		return flashCardList;
 	}
 
+	@Override
+	public FlashCard createFlashCard(FlashCard flashCard) {
+		return flashCardDao.addFlashCard(flashCard);
+	}
+
 }
