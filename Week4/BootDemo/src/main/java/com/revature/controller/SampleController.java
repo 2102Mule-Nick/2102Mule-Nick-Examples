@@ -21,7 +21,6 @@ public class SampleController {
 				responseCode = "200",
 				description = "everything is ok when getting the message",
 				content = @Content(
-						mediaType = "plain-text",
 						schema = @Schema(implementation = String.class)
 						)
 				),
